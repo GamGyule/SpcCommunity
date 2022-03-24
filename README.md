@@ -1,2 +1,2 @@
 # SpcComunity
-SpringBoot + Vue + JPA
+SpringBoot + React + JPA
