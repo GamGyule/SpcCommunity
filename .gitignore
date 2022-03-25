@@ -108,5 +108,15 @@ yarn-error.log*
 # vercel
 .vercel
 
+
+# Created by https://www.toptal.com/developers/gitignore/api/nextjs
+# Edit at https://www.toptal.com/developers/gitignore?templates=nextjs
+
+### NextJS ###
+# Next build dir
+.next/
+
+# End of https://www.toptal.com/developers/gitignore/api/nextjs
+
 node_modules/
 package-lock.json
