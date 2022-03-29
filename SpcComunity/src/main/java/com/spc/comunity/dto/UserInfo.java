@@ -24,8 +24,6 @@ import lombok.NoArgsConstructor;
 @Table(name="TBL_USER_INFO")
 public class UserInfo {
 	@Id
-	@GeneratedValue(generator = "uuid")
-	@Column(name = "UUID", length = 16)
 	private String uuid;
 	
 	@Column(name = "ID")

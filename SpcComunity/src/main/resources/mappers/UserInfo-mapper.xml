@@ -7,4 +7,12 @@
 		select * from TBL_USER_INFO
 	</select>
 	
+	<select id="findById" resultType="boolean" parameterType="string">
+		select if(count(ID) = 1,1,0) from TBL_USER_INFO where ID = #{id}
+	</select>
+	
+	<select id="getUserInfo" resultType="com.spc.comunity.dto.UserInfo" parameterType="hashmap">
+		select * from TBL_USER_INFO where ID = #{userId} and PASSWORD = #{userPassword}
+	</select>
+	
 </mapper>

@@ -23,5 +23,5 @@ spring:
     show-sql: true
     database: mysql
     
-mybatis:  mapper-locations: classpath:mappers/*.xml
+mybatis:
   configuration:    map-underscore-to-camel-case: true

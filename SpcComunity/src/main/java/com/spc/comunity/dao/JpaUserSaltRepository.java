@@ -4,11 +4,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.spc.comunity.dto.UserInfo;
+import com.spc.comunity.dto.UserSalt;
 
 @Repository
-public interface JpaUserInfoRepository extends JpaRepository<UserInfo, String> {
+public interface JpaUserSaltRepository extends JpaRepository<UserSalt, String> {
 	
-	UserInfo save(final UserInfo userInfo);
+	UserSalt save(final UserSalt userSalt);
 
 
 }
