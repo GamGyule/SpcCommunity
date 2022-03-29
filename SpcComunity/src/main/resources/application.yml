@@ -1,0 +1,27 @@
+server:
+  port: 9999
+  servlet:
+    encoding:
+      charset: UTF-8
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    password: connectspc
+    url: jdbc:mariadb://18.212.92.96:3306/SPC
+    username: pbspc
+  devtools:
+    restart:
+      enabled: true
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: false
+    show-sql: true
+    database: mysql
+    
+mybatis:  mapper-locations: classpath:mappers/*.xml
+  configuration:    map-underscore-to-camel-case: true
