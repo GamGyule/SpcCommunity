@@ -1,11 +1,9 @@
 package com.spc.comunity.dto;
 
 import java.util.Date;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -22,6 +20,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Builder(builderMethodName = "UserInfoBuilder")
 @Table(name="TBL_USER_INFO")
+
 public class UserInfo {
 	@Id
 	private String uuid;
