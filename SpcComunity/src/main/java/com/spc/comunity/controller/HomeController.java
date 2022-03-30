@@ -11,8 +11,9 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
@@ -20,6 +21,7 @@ import com.spc.comunity.dao.service.UserInfoService;
 import com.spc.comunity.dao.service.UserSaltService;
 import com.spc.comunity.dto.UserInfo;
 import com.spc.comunity.dto.UserSalt;
+import com.spc.comunity.util.SecureClass;
 
 @RestController
 @RequestMapping("/api/*")
@@ -31,7 +33,7 @@ public class HomeController {
 	@Autowired
 	private UserSaltService userSaltService;
 
-	@RequestMapping("/hi")
+	@GetMapping("/hi")
 	public String Hi() {
 		List<UserInfo> mybatisUserInfoList = userInfoService.findAll();
 
@@ -46,45 +48,39 @@ public class HomeController {
 	}
 
 	// POST 회원가입
-	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	@PostMapping("/user")
 	public String Signup(HttpServletRequest req) {
 
-		Random rnd = new Random();
-		String randomStr = "";
 
-		for (int i = 0; i <= 12; i++) {
-			randomStr += String.valueOf((char) ((int) (rnd.nextInt(26)) + 97));
-		}
-
-		String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-
-		UserSalt userSalt = UserSalt.UserSaltBuilder().uuid(uuid).salt(randomStr).build();
-
-		String securePw = null;
-		try {
-			MessageDigest digest = MessageDigest.getInstance("SHA-512");
-			String temp = req.getParameter("password") + userSalt.getSalt();
-			digest.reset();
-			digest.update(temp.getBytes("utf8"));
-			securePw = String.format("%0128x", new BigInteger(1, digest.digest()));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		UserInfo userInfo = UserInfo.UserInfoBuilder()
-				.uuid(uuid)
-				.id(req.getParameter("id"))
-				.password(securePw)
-				.userName(req.getParameter("username"))
-				.email(req.getParameter("email"))
-				.regDate(new Date())
-				.build();
-
-		boolean alreadyId = userInfoService.findById(userInfo.getId());
+		String id = req.getParameter("id");
+		boolean alreadyId = userInfoService.findById(id);
 		if (!alreadyId) {
+
+			// UUID 생성 "-" 빼고
+			String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+			
+			// SALT 문자열 임의 생성
+			String randomStr = UserSalt.UserSaltGen();
+			
+			// SALT 클래스에 넣어주고 jpa insert
+			UserSalt userSalt = UserSalt.UserSaltBuilder().uuid(uuid).salt(randomStr).build();
 			userSaltService.userSaltSave(userSalt);
+			
+			// 회원 정보에 들어갈 비밀번호+salt 암호화
+			String securePw = SecureClass.sha512(req.getParameter("password"), userSalt.getSalt());
+			UserInfo userInfo = UserInfo.UserInfoBuilder()
+					.uuid(uuid)
+					.id(id)
+					.password(securePw)
+					.userName(req.getParameter("username"))
+					.email(req.getParameter("email"))
+					.regDate(new Date())
+					.build();
+			
+			// 회원정보 입력 jpa insert
 			userInfoService.userInfoSave(userInfo);
 		} else {
+			// 이미 있는 아이디
 			return "Already";
 		}
 		return "Success";
