@@ -2,6 +2,7 @@ package com.spc.comunity.util;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
+import java.util.Random;
 
 public class SecureClass {
 	
@@ -16,6 +17,17 @@ public class SecureClass {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public static String UserSaltGen() {
+		Random rnd = new Random();
+		String randomStr = "";
+
+		for (int i = 0; i <= 12; i++) {
+			randomStr += String.valueOf((char) ((int) (rnd.nextInt(26)) + 97));
+		}
+		
+		return randomStr;
 	}
 
 }

@@ -1,9 +1,6 @@
 package com.spc.comunity;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.util.Date;
-import java.util.Random;
 import java.util.UUID;
 
 import org.junit.jupiter.api.DisplayName;
@@ -13,19 +10,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.google.gson.Gson;
 import com.spc.comunity.dao.service.UserInfoService;
-import com.spc.comunity.dao.service.UserSaltService;
-import com.spc.comunity.dto.UserInfo;
-import com.spc.comunity.dto.UserSalt;
+import com.spc.comunity.dto.UserInfoDto;
+import com.spc.comunity.entity.UserInfo;
 import com.spc.comunity.util.SecureClass;
 
 @SpringBootTest
 class SpcComunityApplicationTests {
-	
+
 	@Autowired
 	private UserInfoService userInfoService;
-	
-	@Autowired
-	private UserSaltService userSaltService;
 
 	@Test
 	@DisplayName("회원가입 테스트")
@@ -37,25 +30,23 @@ class SpcComunityApplicationTests {
 
 			// UUID 생성 "-" 빼고
 			String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-			
+
 			// SALT 문자열 임의 생성
-			String randomStr = UserSalt.UserSaltGen();
-			
-			// SALT 클래스에 넣어주고 jpa insert
-			UserSalt userSalt = UserSalt.UserSaltBuilder().uuid(uuid).salt(randomStr).build();
-			userSaltService.userSaltSave(userSalt);
-			
+			String salt = SecureClass.UserSaltGen();
+
 			// 회원 정보에 들어갈 비밀번호+salt 암호화
-			String securePw = SecureClass.sha512("test password", userSalt.getSalt());
-			UserInfo userInfo = UserInfo.UserInfoBuilder()
-					.uuid(uuid)
-					.id(id)
-					.password(securePw)
-					.userName("test username")
-					.email("test email")
-					.regDate(new Date())
-					.build();
+			String securePw = SecureClass.sha512("test1", salt);
+			UserInfoDto userInfoDto = new UserInfoDto();
+			userInfoDto.setUuid(uuid);
+			userInfoDto.setId(id);
+			userInfoDto.setPassword(securePw);
+			userInfoDto.setUserName("test User Name");
+			userInfoDto.setEmail("test User Email");
+			userInfoDto.setRegDate(new Date());
+			userInfoDto.setSalt(salt);
 			
+			
+			UserInfo userInfo = UserInfo.builder(userInfoDto).build();
 			// 회원정보 입력 jpa insert
 			userInfoService.userInfoSave(userInfo);
 			System.out.println("생성 성공");
@@ -68,21 +59,29 @@ class SpcComunityApplicationTests {
 	@Test
 	@DisplayName("로그인 테스트")
 	void 로그인_테스트입니다() {
-		UserInfo userInfo = UserInfo.UserInfoBuilder()
-				.id("test1")
-				.password("q1w2e3r4")
-				.build();
+
 		
-		UserInfo myInfo = userInfoService.getUserInfo(userInfo);
-		String json = "";		
+		String id = "test1";
+		String pw = "test1";
 		
-		if(myInfo == null) {
+		String salt = userInfoService.getUserSalt(id);
+		System.out.println(salt);
+		
+		String securePw = SecureClass.sha512(pw, salt);
+		UserInfoDto userInfoDto = new UserInfoDto();
+		userInfoDto.setId(id);
+		userInfoDto.setPassword(securePw);
+
+		UserInfoDto myInfo = userInfoService.getUserInfo(userInfoDto);
+
+		String json = "";
+
+		if (myInfo == null) {
 			json = "missmatched";
-		}else {
+		} else {
 			json = new Gson().toJson(myInfo);
 		}
 		System.out.println(json);
 	}
-
 
 }

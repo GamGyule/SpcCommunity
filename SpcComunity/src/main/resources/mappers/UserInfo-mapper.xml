@@ -3,7 +3,7 @@
 
 <mapper namespace="com.spc.comunity.dao.MybatisUserInfoRepository">
 	
-	<select id="findAll" resultType="com.spc.comunity.dto.UserInfo">
+	<select id="findAll" resultType="com.spc.comunity.dto.UserInfoDto">
 		select * from TBL_USER_INFO
 	</select>
 	
@@ -11,8 +11,12 @@
 		select if(count(ID) = 1,1,0) from TBL_USER_INFO where ID = #{id}
 	</select>
 	
-	<select id="getUserInfo" resultType="com.spc.comunity.dto.UserInfo" parameterType="hashmap">
-		select * from TBL_USER_INFO where ID = #{userId} and PASSWORD = #{userPassword}
+	<select id="getUserInfo" resultType="com.spc.comunity.dto.UserInfoDto" parameterType="hashmap">
+		select UUID, ID, USER_NAME, AUTH_CODE, AUTH_NAME, POINT, LEVEL, LOGIN_TIME, PWD_FAIL_CNT from TBL_USER_INFO where ID = #{id} and PASSWORD = #{pw}
+	</select>
+	
+	<select id="getUserSalt" resultType="string" parameterType="string">
+		select SALT from TBL_USER_INFO where ID = #{userId}
 	</select>
 	
 </mapper>

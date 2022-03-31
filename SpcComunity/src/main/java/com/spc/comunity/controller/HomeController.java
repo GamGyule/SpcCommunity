@@ -1,11 +1,8 @@
 package com.spc.comunity.controller;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,9 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.spc.comunity.dao.service.UserInfoService;
-import com.spc.comunity.dao.service.UserSaltService;
-import com.spc.comunity.dto.UserInfo;
-import com.spc.comunity.dto.UserSalt;
+import com.spc.comunity.dto.UserInfoDto;
+import com.spc.comunity.entity.UserInfo;
 import com.spc.comunity.util.SecureClass;
 
 @RestController
@@ -29,17 +25,12 @@ public class HomeController {
 
 	@Autowired
 	private UserInfoService userInfoService;
-	
-	@Autowired
-	private UserSaltService userSaltService;
 
 	@GetMapping("/hi")
 	public String Hi() {
-		List<UserInfo> mybatisUserInfoList = userInfoService.findAll();
+		List<UserInfoDto> mybatisUserInfoList = userInfoService.findAll();
 
-		String myJson = new Gson().toJson(mybatisUserInfoList);
-
-		List<List<UserInfo>> list = new ArrayList<>();
+		List<List<UserInfoDto>> list = new ArrayList<>();
 
 		list.add(mybatisUserInfoList);
 
@@ -58,25 +49,23 @@ public class HomeController {
 
 			// UUID 생성 "-" 빼고
 			String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-			
+
 			// SALT 문자열 임의 생성
-			String randomStr = UserSalt.UserSaltGen();
-			
-			// SALT 클래스에 넣어주고 jpa insert
-			UserSalt userSalt = UserSalt.UserSaltBuilder().uuid(uuid).salt(randomStr).build();
-			userSaltService.userSaltSave(userSalt);
-			
+			String salt = SecureClass.UserSaltGen();
+
 			// 회원 정보에 들어갈 비밀번호+salt 암호화
-			String securePw = SecureClass.sha512(req.getParameter("password"), userSalt.getSalt());
-			UserInfo userInfo = UserInfo.UserInfoBuilder()
-					.uuid(uuid)
-					.id(id)
-					.password(securePw)
-					.userName(req.getParameter("username"))
-					.email(req.getParameter("email"))
-					.regDate(new Date())
-					.build();
+			String securePw = SecureClass.sha512(req.getParameter("pw"), salt);
+			UserInfoDto userInfoDto = new UserInfoDto();
+			userInfoDto.setUuid(uuid);
+			userInfoDto.setId(id);
+			userInfoDto.setPassword(securePw);
+			userInfoDto.setUserName(req.getParameter("username"));
+			userInfoDto.setEmail(req.getParameter("email"));
+			userInfoDto.setRegDate(new Date());
+			userInfoDto.setSalt(salt);
 			
+			
+			UserInfo userInfo = UserInfo.builder(userInfoDto).build();
 			// 회원정보 입력 jpa insert
 			userInfoService.userInfoSave(userInfo);
 		} else {
@@ -84,6 +73,36 @@ public class HomeController {
 			return "Already";
 		}
 		return "Success";
+	}
+	
+	@PostMapping("/login")
+	public String Login(HttpServletRequest req) {
+		
+		String id = req.getParameter("id");
+		String pw = req.getParameter("pw");
+		
+		System.out.println(id);
+		System.out.println(pw);
+		
+		String salt = userInfoService.getUserSalt(id);
+		
+		String securePw = SecureClass.sha512(pw, salt);
+		System.out.println(salt);
+		System.out.println(securePw);
+		UserInfoDto userInfoDto = new UserInfoDto();
+		userInfoDto.setId(id);
+		userInfoDto.setPassword(securePw);
+
+		UserInfoDto myInfo = userInfoService.getUserInfo(userInfoDto);
+
+		String json = "";
+
+		if (myInfo == null) {
+			json = "missmatched";
+		} else {
+			json = new Gson().toJson(myInfo);
+		}		
+		return json;
 	}
 
 }

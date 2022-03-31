@@ -1,4 +1,4 @@
-package com.spc.comunity.dto;
+package com.spc.comunity.entity;
 
 import java.util.Date;
 
@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.spc.comunity.dto.UserInfoDto;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -20,7 +22,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Builder(builderMethodName = "UserInfoBuilder")
 @Table(name="TBL_USER_INFO")
-
 public class UserInfo {
 	@Id
 	private String uuid;
@@ -64,22 +65,26 @@ public class UserInfo {
 	@Column(name = "PWD_FAIL_CNT")
 	private int pwdFailCount;
 	
-	public static UserInfoBuilder builder(UserInfo userInfo) {
+	@Column(name ="SALT")
+	private String salt;
+	
+	public static UserInfoBuilder builder(UserInfoDto userInfo) {
 		return UserInfoBuilder()
-				.uuid(userInfo.uuid)
-				.id(userInfo.id)
-				.password(userInfo.password)
-				.userName(userInfo.userName)
-				.email(userInfo.email)
-				.platform(userInfo.platform)
-				.token(userInfo.token)
+				.uuid(userInfo.getUuid())
+				.id(userInfo.getId())
+				.password(userInfo.getPassword())
+				.userName(userInfo.getUserName())
+				.email(userInfo.getEmail())
+				.platform(userInfo.getPlatform())
+				.token(userInfo.getToken())
 				.regDate(new Date())
-				.authCode(userInfo.authCode)
-				.authName(userInfo.authName)
-				.point(userInfo.point)
-				.level(userInfo.level)
-				.loginTime(userInfo.loginTime)
-				.pwdFailCount(userInfo.pwdFailCount);
+				.authCode(userInfo.getAuthCode())
+				.authName(userInfo.getAuthName())
+				.point(userInfo.getPoint())
+				.level(userInfo.getLevel())
+				.loginTime(userInfo.getLoginTime())
+				.pwdFailCount(userInfo.getPwdFailCount())
+				.salt(userInfo.getSalt());
 	}
 }
 
