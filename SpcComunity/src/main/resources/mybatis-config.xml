@@ -10,6 +10,6 @@
 	
 	<mappers>
 		<mapper resource="mappers/UserInfo-mapper.xml" /> <!-- book 매퍼 등록 -->
-		<mapper resource="mappers/UserSalt-mapper.xml" /> <!-- book 매퍼 등록 -->
+		<mapper resource="mappers/FreeBoard-mapper.xml" /> <!-- book 매퍼 등록 -->
 	</mappers>
 </configuration>

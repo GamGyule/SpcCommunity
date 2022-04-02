@@ -1,6 +1,5 @@
 package com.spc.comunity.dao;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -11,9 +10,9 @@ import com.spc.comunity.dto.FreeBoardDto;
 public interface MybatisFreeBoardRepository {
 	List<FreeBoardDto> findAll();
 	
-	boolean findByTitle(final String title);
+//	boolean findByTitle(final String title);
 	
-	FreeBoardDto getFreeBoardDto(final HashMap<String, String> map);
+//	FreeBoardDto getFreeBoardDto(final HashMap<String, String> map);
 	
 	
 }

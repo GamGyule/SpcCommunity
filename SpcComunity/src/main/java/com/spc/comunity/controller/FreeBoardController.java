@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spc.comunity.dao.service.FreeBoardService;
 import com.spc.comunity.dto.FreeBoardDto;
-import com.spc.comunity.entity.FreeBoard;
 
 @RestController
 @RequestMapping("/api/*")
