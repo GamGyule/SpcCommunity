@@ -22,6 +22,8 @@ public class FreeBoardDto {
 	
 	private String contents;
 	
+	private String writer;
+	
 	private int thumbsUp;
 	
 	private int thumbsDown;

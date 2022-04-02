@@ -31,6 +31,9 @@ public class FreeBoard {
 	@Column(name ="CONTENTS")
 	private String contents;
 	
+	@Column(name ="WRITER")
+	private String writer;
+	
 	@Column(name ="THUMBS_UP")
 	private int thumbsUp;
 	
@@ -56,6 +59,7 @@ public class FreeBoard {
 		return FreeBoardBuilder()
 				.idx(freeBoard.getIdx())
 				.title(freeBoard.getTitle())
+				.writer(freeBoard.getWriter())
 				.contents(freeBoard.getContents())
 				.thumbsUp(freeBoard.getThumbsDown())
 				.thumbsDown(freeBoard.getThumbsDown())

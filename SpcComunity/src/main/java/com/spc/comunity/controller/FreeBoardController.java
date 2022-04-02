@@ -20,7 +20,7 @@ public class FreeBoardController {
 	private FreeBoardService freeBoardService;
 	
 	//게시판 목록조회
-	@GetMapping("/boardList")
+	@GetMapping("/boardlist")
 	@ResponseBody
 	public List<FreeBoardDto> boardList() {
 		return freeBoardService.findAll();
