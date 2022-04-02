@@ -13,7 +13,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
-@Table(name="TBL_FREE_BOARD")
 public class FreeBoardDto {
 	
 	private int idx;

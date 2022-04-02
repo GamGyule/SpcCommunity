@@ -55,12 +55,14 @@ function BackConnect() {
 
 export default function Home() {
   return (
-    <Layout>
-      <br></br>
-      <KaikasLogin></KaikasLogin>
-      <br></br>
-      <BackConnect></BackConnect>
-    </Layout>
+    <div>
+      <Layout>
+        <br></br>
+        <KaikasLogin></KaikasLogin>
+        <br></br>
+        <BackConnect></BackConnect>
+      </Layout>
+    </div>
 
   )
 }

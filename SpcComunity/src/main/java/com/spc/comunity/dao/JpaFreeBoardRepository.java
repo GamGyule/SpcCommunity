@@ -8,6 +8,8 @@ import com.spc.comunity.entity.FreeBoard;
 
 @Repository
 public interface JpaFreeBoardRepository extends JpaRepository<FreeBoard, String> {
-	FreeBoard boardList(final FreeBoardDto freeBoard);
+	
+	FreeBoard save(final FreeBoardDto freeBoardDto);
+
 
 }

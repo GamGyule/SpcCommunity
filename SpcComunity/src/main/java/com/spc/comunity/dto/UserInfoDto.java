@@ -14,7 +14,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
-@Table(name="TBL_USER_INFO")
 public class UserInfoDto {
 	private String uuid;
 

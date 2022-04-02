@@ -9,7 +9,7 @@
 	</settings>
 	
 	<mappers>
-		<mapper resource="mappers/UserInfo-mapper.xml" /> <!-- book 매퍼 등록 -->
-		<mapper resource="mappers/FreeBoard-mapper.xml" /> <!-- book 매퍼 등록 -->
+		<mapper resource="mappers/UserInfo-mapper.xml" />
+		<mapper resource="mappers/FreeBoard-mapper.xml" />
 	</mappers>
 </configuration>

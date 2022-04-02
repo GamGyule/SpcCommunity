@@ -4,9 +4,10 @@
 <mapper namespace="com.spc.comunity.dao.MybatisFreeBoardRepository">
 
 
-<select id="findAll" resultType="com.spc.comunity.dto.FreeBoardDto">
+	<select id="findAll"
+		resultType="com.spc.comunity.dto.FreeBoardDto">
 		select * from TBL_FREE_BOARD
 	</select>
-	
-	
-	</mapper>
+
+
+</mapper>

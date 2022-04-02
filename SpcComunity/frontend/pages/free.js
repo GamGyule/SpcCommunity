@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:SpcComunity/frontend/pages/board.js
 import axios from 'axios'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -32,3 +33,13 @@ const Index = () => (
 );*/
 
 export default BoardList;
+=======
+import Layout from '../components/public/Layout';
+const Index = () => (
+    <Layout>
+        <h2>자유 게시판</h2>
+    </Layout>
+);
+
+export default Index
+>>>>>>> Stashed changes:SpcComunity/frontend/pages/free.js

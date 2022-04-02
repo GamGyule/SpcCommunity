@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.bodyContainer {
+  width: 1500px;
+  margin: 0 auto;
+}
