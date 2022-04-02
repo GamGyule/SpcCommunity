@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BoardService from '../service/BoardService';
+import FreeBoardService from '../service/FreeBoardService';
 
 class ListBoardComponent extends Component {
     constructor(props) {
@@ -30,8 +30,8 @@ class ListBoardComponent extends Component {
                                 <th>제목 </th>
                                 <th>작성자 </th>
                                 <th>작성일 </th>
-                                <th>갱신일 </th>
-                                <th>좋아요수</th>
+                                <th>공감 </th>
+                                <th>비공감</th>
                                 <th>조회수</th>
                             </tr>
                         </thead>
