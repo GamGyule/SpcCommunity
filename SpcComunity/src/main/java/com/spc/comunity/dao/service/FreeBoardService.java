@@ -36,7 +36,7 @@ public class FreeBoardService {
 	}
 	
 	@Transactional
-	public FreeBoardDto getFreeBoardInfo(FreeBoardDto freeBoardDTO) {
+	public FreeBoardDto getFreeBoardInfo(FreeBoardDto freeBoardDtO) {
 		HashMap<String, String> map = new HashMap<>();
 		
 		map.put("id", userInfoDto.getId());
