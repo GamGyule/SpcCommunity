@@ -35,6 +35,6 @@ public class FreeBoardDto {
 	
 	private Date upDate;
 	
-	private Date viewPoint;
+	private int viewPoint;
 	
 }

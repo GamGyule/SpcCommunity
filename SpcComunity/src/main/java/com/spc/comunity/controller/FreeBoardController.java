@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
 import com.spc.comunity.dao.service.FreeBoardService;
 import com.spc.comunity.dto.FreeBoardDto;
 
@@ -16,13 +17,15 @@ public class FreeBoardController {
 
 	@Autowired
 	private FreeBoardService freeBoardService;
-	
-	//게시판 목록조회
+
+	// 게시판 목록조회
 	@GetMapping("/list")
-	public List<FreeBoardDto> boardList() {
-		return freeBoardService.findAll();
+	public String boardList() {
+		List<FreeBoardDto> list = freeBoardService.findAll();
+
+		String json = new Gson().toJson(list);
+
+		return json;
 	}
-	
-	
 
 }

@@ -53,7 +53,7 @@ public class FreeBoard {
 	private Date upDate;
 	
 	@Column(name ="VIEW_POINT")
-	private Date viewPoint;
+	private int viewPoint;
 	
 	public static FreeBoardBuilder builder(FreeBoardDto freeBoard) {
 		return FreeBoardBuilder()
