@@ -1,12 +1,11 @@
-const footerStyle = {
-    backgroundColor: 'black',
-    color: '#fff'
-};
+import Styles from '../../styles/Footer.module.scss'
 
 const Footer = () => {
     return (
-        <div style={footerStyle}>
-            Footer 영역
+        <div className={Styles.FooterBox}>
+            <div className={Styles.FooterBar}>
+                Footer 영역
+            </div>
         </div>
     );
 };

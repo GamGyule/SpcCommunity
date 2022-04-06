@@ -1,31 +1,20 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import Styles from '../../styles/Header.module.css'
-
-const linkStyle = {
-    marginRight: '1rem'
-};
-
+import Styles from '../../styles/Header.module.scss'
+import Logo from '../../public/logo.png'
 const Header = () => {
     return (
-        <div>
-            <div>
-                <div><Image src="/logo.png" alt='logo' width={260} height={110}></Image></div>
-            </div>
-            <div>
-                <ul className={Styles.ul}>
-                    <li>
-                        <Link href="/"><a style={linkStyle}>홈</a></Link>
-                    </li>
-                    <li>
-                        <Link href="/humor"><a style={linkStyle}>유머</a></Link>
-                    </li>
-                    <li>
-                        <Link href="/free"><a style={linkStyle}>자유</a></Link>
-                    </li>
-                    <li>
-                        <Link href="/prison"><a style={linkStyle}>감옥</a></Link>
-                    </li>
+        <div className={Styles.NavBarBox}>
+            <div className={Styles.NavBar}>
+                <div className={Styles.NavBarLogo}>
+                    <Image src={Logo}></Image>
+                    <Link href="/">Poopla</Link>
+                </div>
+                <ul className={Styles.NavMenu}>
+                    <li><Link href="/free">자유 게시판</Link></li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
                 </ul>
             </div>
         </div>

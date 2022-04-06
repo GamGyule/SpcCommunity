@@ -23,7 +23,7 @@ public class FreeBoardController {
 	public String boardList() {
 		List<FreeBoardDto> list = freeBoardService.findAll();
 
-		String json = new Gson().toJson(list);
+		String json = new Gson().newBuilder().setDateFormat("yyyy.MM.dd").create().toJson(list);
 
 		return json;
 	}

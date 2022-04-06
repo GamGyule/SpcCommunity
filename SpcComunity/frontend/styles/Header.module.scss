@@ -1,0 +1,61 @@
+@import "./variable";
+
+.NavBarBox {
+    border: 1px dashed black;
+}
+
+.NavBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    width: $FIXED_WIDTH;
+    margin: 0 auto;
+    border: 1px dashed black;
+}
+
+.NavMenu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.NavMenu li {
+    padding: 8px 12px;
+}
+
+.NavMenu li:hover {
+    background-color: rgb(235, 186, 113);
+    border-radius: 10px;
+}
+
+.NavBarLogo {
+    font-size: 24px;
+    color: black;
+}
+
+.NavBarLogo span {
+    vertical-align: middle;
+
+}
+
+@media (max-width: 1500px) {
+    .NavBar {
+        width: $FULL_WIDTH;
+    }
+
+}
+
+@media (max-width: 991px) {
+    .NavBarLogo span {
+        display: none;
+    }
+
+    .NavBarLogo {
+        margin: 0px 3%;
+    }
+
+    .NavMenu {
+        margin: 0px 3%;
+    }
+}

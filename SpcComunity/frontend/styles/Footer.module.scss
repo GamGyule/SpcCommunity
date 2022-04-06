@@ -1,0 +1,25 @@
+@import "./variable";
+
+.FooterBox {
+    border: 1px dashed black;
+}
+
+.FooterBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0px;
+    width: $FIXED_WIDTH;
+    margin: 0 auto;
+    border: 1px dashed blue;
+}
+
+
+@media (max-width: 1500px) {
+    .FooterBar {
+        width: $FULL_WIDTH;
+    }
+
+}
+
+@media (max-width: 991px) {}

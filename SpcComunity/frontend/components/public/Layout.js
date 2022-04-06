@@ -1,12 +1,14 @@
 import Header from './Header';
 import Footer from './Footer';
+import { Fragment } from 'react/cjs/react.production.min';
 
 const Layout = ({ children }) => (
-    <div className='bodyContainer'>
+    <Fragment>
         <Header />
         {children}
         <Footer />
-    </div>
+    </Fragment>
+
 );
 
 export default Layout;

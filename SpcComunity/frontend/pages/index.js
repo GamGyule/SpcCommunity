@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 import Layout from '../components/public/Layout'
 import { useStore } from '../store/store.js'
 
@@ -55,14 +55,16 @@ function BackConnect() {
 
 export default function Home() {
   return (
-    <div>
-      <Layout>
-        <br></br>
-        <KaikasLogin></KaikasLogin>
-        <br></br>
-        <BackConnect></BackConnect>
-      </Layout>
-    </div>
+    <Layout>
+      <div className='center-container'>
+        <div className='center-child'>
+          <br></br>
+          <KaikasLogin></KaikasLogin>
+          <br></br>
+          <BackConnect></BackConnect>
+        </div>
+      </div>
+    </Layout>
 
   )
 }

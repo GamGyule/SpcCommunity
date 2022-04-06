@@ -8,8 +8,11 @@ import ListComponent from '../components/common/ListBoardComponent.js'
 
 const BoardList = () => (
   <Layout>
-    <h2>자유 게시판</h2>
-    <ListComponent></ListComponent>
+    <div className='center-container'>
+      <div className='center-child'>
+        <ListComponent board="d"></ListComponent>
+      </div>
+    </div>
   </Layout>
 );
 
