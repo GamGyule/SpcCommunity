@@ -8,6 +8,11 @@
 		resultType="com.spc.comunity.dto.HumorBoardDto" parameterType="int">
 		select * from TBL_HUMOR_BOARD order by idx desc limit ${page}, 20;
 	</select>
+	
+	<select id="findLately"
+		resultType="com.spc.comunity.dto.HumorBoardDto" parameterType="int">
+		select * from TBL_HUMOR_BOARD order by idx desc limit 0,5;
+	</select>
 
 
 </mapper>

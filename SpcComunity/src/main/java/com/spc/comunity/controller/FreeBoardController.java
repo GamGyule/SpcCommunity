@@ -43,5 +43,27 @@ public class FreeBoardController {
 
 		return json;
 	}
+	
+	@GetMapping("/board/humor/lately")
+	public String humorLately() {
+		
+		List<HumorBoardDto> list = humorBoardService.findLately();
+
+		String json = new Gson().newBuilder().setDateFormat("yyyy.MM.dd").create().toJson(list);
+
+		return json;
+	}
+	
+	@GetMapping("/board/free/lately")
+	public String freeLately() {
+		
+		List<FreeBoardDto> list = freeBoardService.findLately();
+
+		String json = new Gson().newBuilder().setDateFormat("yyyy.MM.dd").create().toJson(list);
+
+		return json;
+	}
+	
+	
 
 }

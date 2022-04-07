@@ -30,4 +30,9 @@ public class HumorBoardService {
 		return mybatisHumorBoardRepository.findPage(page);
 	}
 	
+	@Transactional
+	public List<HumorBoardDto> findLately(){
+		return mybatisHumorBoardRepository.findLately();
+	}
+	
 }

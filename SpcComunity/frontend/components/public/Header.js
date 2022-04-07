@@ -5,14 +5,6 @@ import Logo from '../../public/logo.png'
 const Header = () => {
     return (
         <div className={Styles.NavBarBox}>
-            <div className={Styles.NavToolbar}>
-                <ul>
-                    <li>왼쪽에 넣을거</li>
-                </ul>
-                <ul>
-                    <li>로그인</li>
-                </ul>
-            </div>
             <div className={Styles.NavBar}>
                 <div className={Styles.NavBarLogo}>
                     <Image src={Logo} alt="Logo"></Image>

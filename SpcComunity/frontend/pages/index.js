@@ -1,5 +1,8 @@
 import Layout from '../components/public/Layout'
 import { useStore } from '../store/store.js'
+import Styles from '../styles/Home.module.scss'
+import MainLatelyComponent from '../components/common/MainLatelyComponent'
+import axios from 'axios'
 
 
 async function testKaikasLogin() {
@@ -18,13 +21,38 @@ function KaikasLogin() {
   )
 }
 
-export default function Home() {
+export const getServerSideProps = async (context) => {
+  let freeData = [];
+  let humorData = [];
+  await axios.get('http://127.0.0.1:9999/api/board/free/lately').then(function (e) {
+    freeData = e.data;
+  });
+
+  await axios.get('http://127.0.0.1:9999/api/board/humor/lately').then(function (e) {
+    humorData = e.data;
+  });
+
+
+
+  return { props: { freeData: freeData, humorData: humorData } }
+}
+
+export default function Home({ freeData, humorData }) {
   return (
     <Layout>
       <div className='center-container'>
-        <div className='center-child'>
-          <br></br>
-          <KaikasLogin></KaikasLogin>
+        <div className={Styles.MainContainer}>
+          <div className='center-child'>
+            <div className={Styles.MainContent}>
+              <div className={Styles.MainBanner}>
+
+              </div>
+              <div className={Styles.LatelyLayout}>
+                <MainLatelyComponent board="자유게시판" data={freeData}></MainLatelyComponent>
+                <MainLatelyComponent board="유머게시판" data={humorData}></MainLatelyComponent>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Layout>

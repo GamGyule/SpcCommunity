@@ -1,0 +1,39 @@
+@import './variable';
+
+.TableStyle {
+    max-width: 500px;
+    width: 500px;
+    min-height: 200px;
+    border: 1px dashed red;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.TableStyle li {
+    list-style: none;
+}
+
+.TableStyle li>div {
+    padding: 5px 8px;
+    display: flex;
+    overflow: hidden;
+}
+
+.TableStyle li>div:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+@media (max-width: $FIXED_WIDTH) {
+    .TableStyle {
+        width: 400px;
+    }
+}
+
+@media (max-width: 991px) {
+    .TableStyle {
+        width: 280px;
+    }
+}

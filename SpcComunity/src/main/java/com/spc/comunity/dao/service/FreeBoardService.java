@@ -30,4 +30,9 @@ public class FreeBoardService {
 		return mybatisFreeBoardRepository.findPage(page);
 	}
 	
+	@Transactional
+	public List<FreeBoardDto> findLately(){
+		return mybatisFreeBoardRepository.findLately();
+	}
+	
 }

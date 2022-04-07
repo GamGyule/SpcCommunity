@@ -12,6 +12,8 @@ public interface MybatisHumorBoardRepository {
 	
 	List<HumorBoardDto> findPage(int page);
 	
+	List<HumorBoardDto> findLately();
+	
 //	boolean findByTitle(final String title);
 	
 //	FreeBoardDto getFreeBoardDto(final HashMap<String, String> map);
