@@ -1,7 +1,3 @@
-import axios from 'axios'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.scss'
 import Layout from '../components/public/Layout'
 import { useStore } from '../store/store.js'
 
