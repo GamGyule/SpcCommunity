@@ -1,18 +1,6 @@
 package com.spc.comunity.entity;
 
 import java.util.Date;
-<<<<<<< HEAD:SpcComunity/src/main/java/com/spc/comunity/dto/UserInfo.java
-<<<<<<< HEAD
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-=======
-import java.util.UUID;
-=======
->>>>>>> Dev:SpcComunity/src/main/java/com/spc/comunity/entity/UserInfo.java
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,21 +12,10 @@ import com.spc.comunity.dto.UserInfoDto;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
->>>>>>> Dev
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-
 @Getter
-<<<<<<< HEAD
-@NoArgsConstructor
-@Entity
-@Table(name="TBL_USER_INF")
-public class UserInfo {
-	@Id
-	@Column(name = "UUID")
-	private byte[] uuid;
-=======
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Entity
@@ -47,17 +24,14 @@ public class UserInfo {
 public class UserInfo {
 	@Id
 	private String uuid;
->>>>>>> Dev
 	
 	@Column(name = "ID")
 	private String id;
 	
-<<<<<<< HEAD
-=======
+
 	@Column(name ="PASSWORD")
 	private String password;
 	
->>>>>>> Dev
 	@Column(name = "USER_NAME")
 	private String userName;
 	
@@ -72,18 +46,11 @@ public class UserInfo {
 	
 	@Column(name = "REG_DATE")
 	private Date regDate;
-	
-<<<<<<< HEAD
-	@Column(name = "AUTH_CD")
-	private int authCode;
-	
-	@Column(name = "AUTH_NM")
-=======
+
 	@Column(name = "AUTH_CODE")
 	private int authCode;
 	
 	@Column(name = "AUTH_NAME")
->>>>>>> Dev
 	private String authName;
 	
 	@Column(name = "POINT")
@@ -95,11 +62,6 @@ public class UserInfo {
 	@Column(name = "LOGIN_TIME")
 	private Date loginTime;
 	
-<<<<<<< HEAD
-	@Column(name = "LOGIN_FAIL_CNT")
-	private int pwdFailCount;
-}
-=======
 	@Column(name = "PWD_FAIL_CNT")
 	private int pwdFailCount;
 	
@@ -125,5 +87,3 @@ public class UserInfo {
 				.salt(userInfo.getSalt());
 	}
 }
-
->>>>>>> Dev
