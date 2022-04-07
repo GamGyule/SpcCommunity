@@ -18,7 +18,7 @@ function FreeBoard({ data }) {
 
 export const getServerSideProps = async (context) => {
   let data = [];
-  await axios.get('http://localhost:9999/api/board/free').then(function (e) {
+  await axios.get('http://127.0.0.1:9999/api/board/free').then(function (e) {
     data = e.data;
   });
 

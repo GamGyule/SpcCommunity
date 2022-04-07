@@ -25,7 +25,7 @@ const HumorBoard = ({ data }) => (
 
 export const getServerSideProps = async (context) => {
     let data = [];
-    await axios.get('http://localhost:9999/api/board/humor').then(function (e) {
+    await axios.get('http://127.0.0.1:9999/api/board/humor').then(function (e) {
         data = e.data;
     });
 

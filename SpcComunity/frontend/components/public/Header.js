@@ -15,7 +15,7 @@ const Header = () => {
             </div>
             <div className={Styles.NavBar}>
                 <div className={Styles.NavBarLogo}>
-                    <Image src={Logo}></Image>
+                    <Image src={Logo} alt="Logo"></Image>
                     <Link href="/">Poopla</Link>
                 </div>
                 <ul className={Styles.NavMenu}>
