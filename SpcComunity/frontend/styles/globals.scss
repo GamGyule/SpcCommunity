@@ -1,0 +1,41 @@
+@import "./variable";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.center-container {
+  width: $FULL_WIDTH;
+  border: 1px dashed black;
+}
+
+.center-child {
+  width: $FIXED_WIDTH;
+  margin: 0 auto;
+  border: 1px dashed blue;
+}
+
+@media (max-width: $FIXED_WIDTH) {
+
+  .center-child {
+    width: $RESPONSIVE_WIDTH;
+    margin: 0 auto;
+    margin-right: 1%;
+    margin-left: 1%;
+  }
+}
+
+@media (max-width: 991px) {}

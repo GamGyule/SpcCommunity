@@ -5,14 +5,17 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.spc.comunity.dto.UserInfo;
+import com.spc.comunity.dto.UserInfoDto;
+import com.spc.comunity.entity.UserInfo;
 
 @Mapper
 public interface MybatisUserInfoRepository {
 
-	List<UserInfo> findAll();
+	List<UserInfoDto> findAll();
 
 	boolean findById(final String id);
 	
-	UserInfo getUserInfo(final HashMap<String, String> map);
+	UserInfoDto getUserInfo(final HashMap<String, String> map);
+	
+	String getUserSalt(final String id);
 }

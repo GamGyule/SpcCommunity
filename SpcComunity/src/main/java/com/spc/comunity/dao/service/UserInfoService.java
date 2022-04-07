@@ -9,7 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.spc.comunity.dao.JpaUserInfoRepository;
 import com.spc.comunity.dao.MybatisUserInfoRepository;
-import com.spc.comunity.dto.UserInfo;
+import com.spc.comunity.dto.UserInfoDto;
+import com.spc.comunity.entity.UserInfo;
 
 
 @Service
@@ -23,7 +24,7 @@ public class UserInfoService {
 	
 	
 	@Transactional
-	public List<UserInfo> findAll(){
+	public List<UserInfoDto> findAll(){
 		return mybatisInfoRepository.findAll();
 	}
 	
@@ -39,13 +40,18 @@ public class UserInfoService {
 	}
 	
 	@Transactional
-	public UserInfo getUserInfo(UserInfo userInfo) {
+	public UserInfoDto getUserInfo(UserInfoDto userInfoDto) {
 		HashMap<String, String> map = new HashMap<>();
 		
-		map.put("userId", userInfo.getId());
-		map.put("userPassword",userInfo.getPassword());
+		map.put("id", userInfoDto.getId());
+		map.put("pw",userInfoDto.getPassword());
 		
 		return mybatisInfoRepository.getUserInfo(map);
+	}
+	
+	@Transactional
+	public String getUserSalt(String id) {
+		return mybatisInfoRepository.getUserSalt(id);
 	}
 
 }

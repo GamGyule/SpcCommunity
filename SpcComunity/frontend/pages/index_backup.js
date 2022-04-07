@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 axios.get('/api/hi').then(function (e) {
   console.log(e.data);
 });

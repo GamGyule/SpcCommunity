@@ -1,0 +1,32 @@
+.TableStyle {
+    width: 100%;
+}
+
+.TableStyle td:nth-child(1) {
+    width: 60px;
+    text-align: center;
+}
+
+.TableStyle td:nth-child(2) {
+    width: calc(100% - 300px);
+}
+
+.TableStyle td:nth-child(3) {
+    width: 100px;
+    text-align: center;
+}
+
+.TableStyle td:nth-child(4) {
+    width: 20px;
+    text-align: center;
+}
+
+.TableStyle td:nth-child(5) {
+    width: 40px;
+    text-align: center;
+}
+
+.TableStyle td:nth-child(6) {
+    width: 80px;
+    text-align: center;
+}
