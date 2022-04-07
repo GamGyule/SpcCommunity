@@ -6,14 +6,12 @@ import Styles from '../../styles/ListStyle.module.scss'
 
 
 function BoardReturn(props) {
-    console.log(props.board);
-    useEffect(async () => {
-        axios.get('/api/board/list').then(function (e) {
-            useStore.setState(state => ({ boardList: e.data }));
-        });
-    }, [])
 
-    let list = useStore(state => state.boardList);
+    let list = props.data;
+
+    if (list.length < 1) {
+        console.log("No Data");
+    }
 
     return (
         list.map(
@@ -32,7 +30,7 @@ function BoardReturn(props) {
 
 const ListBoardComponent = (props) => (
     < div >
-        <h2>자유 게시판</h2>
+        <h2>{props.board}</h2>
         <div>
             <table className={Styles.TableStyle}>
                 <thead>

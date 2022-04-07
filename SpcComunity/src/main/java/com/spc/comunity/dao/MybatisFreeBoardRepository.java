@@ -10,9 +10,7 @@ import com.spc.comunity.dto.FreeBoardDto;
 public interface MybatisFreeBoardRepository {
 	List<FreeBoardDto> findAll();
 	
-//	boolean findByTitle(final String title);
-	
-//	FreeBoardDto getFreeBoardDto(final HashMap<String, String> map);
+	List<FreeBoardDto> findPage(int page);
 	
 	
 }

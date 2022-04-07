@@ -1,8 +1,19 @@
+import axios from 'axios'
+import Head from 'next/head'
+import Image from 'next/image'
 import Layout from '../components/public/Layout';
-const Index = () => (
+import { useStore } from '../store/store.js'
+import ListComponent from '../components/common/ListBoardComponent.js'
+
+
+const PrisonBoard = () => (
     <Layout>
-        <h2>감옥 게시판</h2>
+        <div className='center-container'>
+            <div className='center-child'>
+                <ListComponent board="감옥"></ListComponent>
+            </div>
+        </div>
     </Layout>
 );
 
-export default Index
+export default PrisonBoard;

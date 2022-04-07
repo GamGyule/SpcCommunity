@@ -4,9 +4,9 @@
 <mapper namespace="com.spc.comunity.dao.MybatisFreeBoardRepository">
 
 
-	<select id="findAll"
-		resultType="com.spc.comunity.dto.FreeBoardDto">
-		select * from TBL_FREE_BOARD
+	<select id="findPage"
+		resultType="com.spc.comunity.dto.FreeBoardDto" parameterType="Integer">
+		select * from TBL_FREE_BOARD order by idx desc limit ${page}, 20;
 	</select>
 
 

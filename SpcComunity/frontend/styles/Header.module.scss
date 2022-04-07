@@ -24,9 +24,8 @@
     padding: 8px 12px;
 }
 
-.NavMenu li:hover {
-    background-color: rgb(235, 186, 113);
-    border-radius: 10px;
+.NavMenu li a:hover {
+    text-decoration: underline;
 }
 
 .NavBarLogo {
@@ -39,7 +38,26 @@
 
 }
 
-@media (max-width: 1500px) {
+.NavToolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px dashed red;
+    background-color: #fbfbfb;
+    padding: 3px 1%;
+}
+
+.NavToolbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.NavToolbar ul li a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: $FIXED_WIDTH) {
     .NavBar {
         width: $FULL_WIDTH;
     }

@@ -25,4 +25,9 @@ public class FreeBoardService {
 		return mybatisFreeBoardRepository.findAll();
 	}	
 	
+	@Transactional
+	public List<FreeBoardDto> findPage(int page){
+		return mybatisFreeBoardRepository.findPage(page);
+	}
+	
 }

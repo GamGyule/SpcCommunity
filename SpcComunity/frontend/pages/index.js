@@ -22,37 +22,6 @@ function KaikasLogin() {
   )
 }
 
-
-function BackConnect() {
-  const backData = useStore(state => state.backData);
-  const BackConnectApi = useStore(state => state.BackConnectApi);
-
-  const rendering = () => {
-    const result = [];
-    for (let i = 0; i < backData.length; i++) {
-      result.push(<tr key={i}><td>{backData[0][i].uuid}</td><td>{backData[0][i].id}</td></tr>)
-    }
-    return result;
-  }
-
-  return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>UUID</th>
-            <th>ID</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rendering()}
-        </tbody>
-      </table>
-      <input type="button" value="백엔드 테스트" onClick={BackConnectApi} />
-    </div>
-  )
-}
-
 export default function Home() {
   return (
     <Layout>
@@ -60,8 +29,6 @@ export default function Home() {
         <div className='center-child'>
           <br></br>
           <KaikasLogin></KaikasLogin>
-          <br></br>
-          <BackConnect></BackConnect>
         </div>
       </div>
     </Layout>

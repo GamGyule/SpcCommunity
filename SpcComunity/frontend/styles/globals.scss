@@ -28,7 +28,7 @@ a {
   border: 1px dashed blue;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: $FIXED_WIDTH) {
 
   .center-child {
     width: $RESPONSIVE_WIDTH;
