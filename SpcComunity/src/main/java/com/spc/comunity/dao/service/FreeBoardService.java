@@ -15,7 +15,7 @@ import com.spc.comunity.dto.FreeBoardDto;
 public class FreeBoardService {
 	
 	@Autowired
-	private JpaFreeBoardRepository freeBoardRepository;
+	private JpaFreeBoardReporsitory freeBoardRepository;
 	
 	@Autowired
 	private MybatisFreeBoardRepository mybatisFreeBoardRepository;
@@ -24,6 +24,14 @@ public class FreeBoardService {
 	public List<FreeBoardDto> findAll() {
 		return mybatisFreeBoardRepository.findAll();
 	}	
+	
+	@Transactional
+	public List<FreeBoardDto> findById() {
+		return mybatisFreeBoardRepository.findById();
+	}	
+	
+	
+	
 	
 	@Transactional
 	public List<FreeBoardDto> findPage(int page){

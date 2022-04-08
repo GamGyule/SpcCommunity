@@ -1,9 +1,11 @@
 package com.spc.comunity.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +25,7 @@ public class FreeBoardController {
 	@Autowired
 	private HumorBoardService humorBoardService;
 
-	// 게시판 목록조회
+	// 자유게시판 목록조회
 	@GetMapping("/board/free")
 	public String freeList(@RequestParam(value="page", defaultValue = "0") int _page) {
 		List<FreeBoardDto> list = freeBoardService.findPage(_page);
@@ -33,7 +35,7 @@ public class FreeBoardController {
 		return json;
 	}
 
-	// 게시판 목록조회
+	// 유머게시판 목록조회
 	@GetMapping("/board/humor")
 	public String humorList(@RequestParam(value="page", defaultValue = "0") int _page) {
 		
@@ -63,6 +65,32 @@ public class FreeBoardController {
 
 		return json;
 	}
+	
+	
+	//자유게시판 상세보기
+	@GetMapping("board/free/{id}")
+	public String read(@PathVariable int idx, @LoginUser UserSessionDto user, Model model){
+		FreeBoardDto dto = FreeBoardService.findById(idx);
+		List<CommentResponseDto> comments = dto.getComments(); 
+		
+		/* 댓글 관련 */ if (comments != null && !comments.isEmpty()) {
+			model.addAttribute("comments", comments); }
+		
+		/* 사용자 관련 */ if (user != null) {
+			model.addAttribute("user", user.getNickname());
+			
+			/*게시글 작성자 본인인지 확인*/ 
+			if (dto.getUserId().equals(user.getId())) {
+				model.addAttribute("writer", true); 
+				} 
+			} 
+			postsService.updateView(id); // views ++ 
+			model.addAttribute("posts", dto); 
+			return "posts/posts-read"; 
+		}
+	}
+
+
 	
 	
 
