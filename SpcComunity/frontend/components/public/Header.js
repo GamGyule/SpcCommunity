@@ -7,13 +7,16 @@ const Header = () => {
         <div className={Styles.NavBarBox}>
             <div className={Styles.NavBar}>
                 <div className={Styles.NavBarLogo}>
-                    <Image src={Logo} alt="Logo"></Image>
+                    <Image className={Styles.Logo} src={Logo} alt="Logo"></Image>
                     <Link href="/">Poopla</Link>
                 </div>
                 <ul className={Styles.NavMenu}>
                     <li><Link href="/free">자유 게시판</Link></li>
                     <li><Link href="/humor">유머 게시판</Link></li>
                 </ul>
+                <div className={Styles.MobileMenu}>
+                    asd
+                </div>
             </div>
         </div>
     );

@@ -61,6 +61,7 @@ local.properties
 .worksheet
 
 build/
+.gradle/
 
 
 # Uncomment this line if you wish to ignore the project description file.

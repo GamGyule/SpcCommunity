@@ -1,7 +1,6 @@
 @import './variable';
 
 .TableStyle {
-    max-width: 500px;
     width: 500px;
     min-height: 200px;
     border: 1px dashed red;
@@ -35,5 +34,11 @@
 @media (max-width: 991px) {
     .TableStyle {
         width: 280px;
+    }
+}
+
+@media (max-width: $MOBILE_WIDTH) {
+    .TableStyle {
+        width: 100%;
     }
 }

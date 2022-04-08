@@ -57,6 +57,10 @@
     text-decoration: underline;
 }
 
+.MobileMenu {
+    display: none;
+}
+
 @media (max-width: $FIXED_WIDTH) {
     .NavBar {
         width: $FULL_WIDTH;
@@ -75,5 +79,23 @@
 
     .NavMenu {
         margin: 0px 3%;
+    }
+}
+
+@media (max-width: $MOBILE_WIDTH) {
+    .NavMenu {
+        display: none;
+    }
+
+    .MobileMenu {
+        display: block;
+    }
+
+    .NavBarLogo span {
+        display: none !important;
+    }
+
+    .NavBar {
+        padding: 8px 2%;
     }
 }

@@ -25,11 +25,11 @@ function MainListReturn(props) {
 const ListBoardComponent = (props) => (
     < div >
         <h2>{props.board}</h2>
-        <div>
-            <ul className={Styles.TableStyle}>
-                {MainListReturn(props)}
-            </ul>
-        </div>
+
+        <ul className={Styles.TableStyle}>
+            {MainListReturn(props)}
+        </ul>
+
     </div >
 )
 export default ListBoardComponent;
