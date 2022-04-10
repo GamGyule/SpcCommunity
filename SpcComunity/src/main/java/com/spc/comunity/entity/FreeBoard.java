@@ -1,12 +1,16 @@
 package com.spc.comunity.entity;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.spc.comunity.dto.FreeBoardDto;
 
 import lombok.AccessLevel;
@@ -54,6 +58,12 @@ public class FreeBoard {
 	
 	@Column(name ="VIEW_POINT",columnDefinition ="integer default 0")
 	private int viewPoint;
+	
+	
+	//무한참조 발생해결
+	@JsonIgnoreProperties({"FreeBoard"})
+	@OneToMany(mappedBy = "FreeBoard", fetch = FetchType.EAGER)
+	private List<FreeBoardComment> commentList;
 	
 	public static FreeBoardBuilder builder(FreeBoardDto freeBoard) {
 		return FreeBoardBuilder()
