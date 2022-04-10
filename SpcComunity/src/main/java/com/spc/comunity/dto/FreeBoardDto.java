@@ -2,8 +2,6 @@ package com.spc.comunity.dto;
 
 import java.sql.Date;
 
-import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
