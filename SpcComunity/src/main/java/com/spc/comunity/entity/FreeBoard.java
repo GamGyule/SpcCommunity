@@ -63,7 +63,7 @@ public class FreeBoard {
 	//무한참조 발생해결
 	@JsonIgnoreProperties({"FreeBoard"})
 	@OneToMany(mappedBy = "FreeBoard", fetch = FetchType.EAGER)
-	private List<FreeBoardComment> commentList;
+	private List<BoardComment> commentList;
 	
 	public static FreeBoardBuilder builder(FreeBoardDto freeBoard) {
 		return FreeBoardBuilder()

@@ -20,10 +20,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Entity
-@Builder(builderMethodName = "FreeBoardCommentBuilder")
+@Builder(builderMethodName = "BoardCommentBuilder")
 @Table(name="TBL_FREE_COMMENT")
 
-public class FreeBoardComment {
+public class BoardComment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idx;
