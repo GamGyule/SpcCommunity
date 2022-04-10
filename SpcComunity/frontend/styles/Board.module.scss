@@ -1,0 +1,80 @@
+@import './variable';
+
+.BoardTitle {
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.BoardTitle h2 {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px 5px;
+  margin: 0;
+}
+
+.RegBox {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Reg {
+  width: 60% !important;
+}
+
+.RegDate {
+  width: 40% !important;
+}
+
+.BoardContents {
+  position: relative;
+  padding: 10px;
+  background-color: #ddd;
+}
+
+.ContentArea {
+  min-height: 500px;
+  margin-bottom: 150px;
+}
+
+.UpDownShare {
+  position: absolute;
+  width: 100%;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.UpDownShare span {
+  padding: 0px 30px;
+}
+
+.Up {
+  background-image: url('../public/up.png');
+  content: "";
+  width: 64px;
+  height: 64px;
+}
+
+.Down {
+  background-image: url('../public/down.png');
+  content: "";
+  width: 64px;
+  height: 64px;
+}
+
+.Up:hover,
+.Down:hover {
+  cursor: pointer;
+}
+
+
+
+@media (max-width: $MOBILE_WIDTH) {}

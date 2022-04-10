@@ -16,4 +16,6 @@ public interface MybatisFreeBoardRepository {
 	
 	List<FreeBoardDto> findLately();
 	
+	FreeBoardDto findBoard(int boardNum);
+	
 }

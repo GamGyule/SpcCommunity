@@ -12,5 +12,6 @@
 		<mapper resource="mappers/UserInfo-mapper.xml" />
 		<mapper resource="mappers/FreeBoard-mapper.xml" />
 		<mapper resource="mappers/HumorBoard-mapper.xml" />
+		<mapper resource="mappers/BoardComment-mapper.xml" />
 	</mappers>
 </configuration>

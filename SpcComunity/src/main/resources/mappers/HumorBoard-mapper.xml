@@ -13,6 +13,11 @@
 		resultType="com.spc.comunity.dto.HumorBoardDto" parameterType="int">
 		select * from TBL_HUMOR_BOARD order by idx desc limit 0,5;
 	</select>
+	
+	<select id="findBoard"
+		resultType="com.spc.comunity.dto.HumorBoardDto" parameterType="int">
+		select * from TBL_HUMOR_BOARD where idx = #{boardNum};
+	</select>
 
 
 </mapper>

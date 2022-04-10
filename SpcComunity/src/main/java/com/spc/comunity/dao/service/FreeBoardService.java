@@ -41,4 +41,9 @@ public class FreeBoardService {
 		return mybatisFreeBoardRepository.findLately();
 	}
 	
+	@Transactional
+	public FreeBoardDto findBoard(int boardNum) {
+		return mybatisFreeBoardRepository.findBoard(boardNum);
+	}
+	
 }

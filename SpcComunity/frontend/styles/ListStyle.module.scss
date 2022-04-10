@@ -1,9 +1,15 @@
 .TableStyle {
     width: 100%;
+    border-spacing: 0px;
+}
+
+
+.TableStyle tr:hover {
+    background-color: #ddd;
 }
 
 .TableStyle td:nth-child(1) {
-    width: 60px;
+    width: 70px;
     text-align: center;
 }
 
@@ -11,8 +17,12 @@
     width: calc(100% - 300px);
 }
 
+.TableStyle td:nth-child(2):hover {
+    text-decoration: underline;
+}
+
 .TableStyle td:nth-child(3) {
-    width: 100px;
+    width: 200px;
     text-align: center;
 }
 
@@ -29,4 +39,8 @@
 .TableStyle td:nth-child(6) {
     width: 80px;
     text-align: center;
+}
+
+.BoardArea {
+    width: 80%;
 }

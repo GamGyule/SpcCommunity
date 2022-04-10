@@ -5,7 +5,7 @@
 
 
 	<select id="findPage"
-		resultType="com.spc.comunity.dto.FreeBoardDto" parameterType="Integer">
+		resultType="com.spc.comunity.dto.FreeBoardDto" parameterType="int">
 		select * from TBL_FREE_BOARD order by idx desc limit ${page}, 20;
 	</select>
 	
@@ -13,6 +13,12 @@
 		resultType="com.spc.comunity.dto.FreeBoardDto" parameterType="int">
 		select * from TBL_FREE_BOARD order by idx desc limit 0,5;
 	</select>
+	
+	<select id="findBoard"
+		resultType="com.spc.comunity.dto.FreeBoardDto" parameterType="int">
+		select * from TBL_FREE_BOARD where idx = #{boardNum};
+	</select>
+
 
 
 </mapper>

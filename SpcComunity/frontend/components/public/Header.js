@@ -2,6 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Styles from '../../styles/Header.module.scss'
 import Logo from '../../public/logo.png'
+
+//https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id={CLIENT_ID}&state={STATE_STRING}&redirect_uri={CALLBACK_URL}
 const Header = () => {
     return (
         <div className={Styles.NavBarBox}>

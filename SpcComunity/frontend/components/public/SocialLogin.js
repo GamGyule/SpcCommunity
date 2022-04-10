@@ -1,0 +1,1 @@
+const { naver, Kakao } = window;
