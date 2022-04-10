@@ -25,14 +25,18 @@ import lombok.NoArgsConstructor;
 
 public class FreeBoardComment {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idx;
 	
+	//댓글은 누가 작성했는지 어느게시글에 작성했는지 알아야하기때문에 연관관계필요
+	@ManyToOne
 	@Column(name ="BOARD_IDX")
 	private String boardIdx;
 	
 	@Column(name ="CONTENT")
 	private String content;
 
+	@ManyToOne
 	@Column(name ="COMMENT_WRTIER")
 	private String commentWriter;
 	
