@@ -4,7 +4,10 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AccessLevel;
@@ -22,14 +25,17 @@ import lombok.NoArgsConstructor;
 
 public class FreeBoardComment {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idx;
 	
+	@ManyToOne
 	@Column(name ="BOARD_IDX")
 	private String boardIdx;
 	
 	@Column(name ="CONTENT")
 	private String content;
 	
+	@ManyToOne
 	@Column(name ="COMMENT_WRTIER")
 	private String commentWriter;
 	
@@ -38,8 +44,5 @@ public class FreeBoardComment {
 	
 	@Column(name ="UP_IDX")
 	private String upIdx;
-	
-	
-	
 
 }
