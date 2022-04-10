@@ -52,7 +52,7 @@ public class FreeBoard {
 	@Column(name ="UP_DATE")
 	private Date upDate;
 	
-	@Column(name ="VIEW_POINT")
+	@Column(name ="VIEW_POINT",columnDefinition ="integer default 0")
 	private int viewPoint;
 	
 	public static FreeBoardBuilder builder(FreeBoardDto freeBoard) {

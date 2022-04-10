@@ -25,17 +25,14 @@ import lombok.NoArgsConstructor;
 
 public class FreeBoardComment {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idx;
 	
-	@ManyToOne
 	@Column(name ="BOARD_IDX")
 	private String boardIdx;
 	
 	@Column(name ="CONTENT")
 	private String content;
-	
-	@ManyToOne
+
 	@Column(name ="COMMENT_WRTIER")
 	private String commentWriter;
 	
