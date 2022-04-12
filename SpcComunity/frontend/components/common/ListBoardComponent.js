@@ -9,15 +9,13 @@ import Link from 'next/link';
 function BoardReturn(props) {
 
     let list = props.data;
-
-    console.log(props);
     let url;
     switch (props.board) {
         case "자유 게시판":
-            url = "free";
+            url = "/free";
             break;
         case "유머 게시판":
-            url = "humor";
+            url = "/humor";
             break;
     }
 

@@ -9,9 +9,7 @@ import CommentComponent from '../../components/common/CommentComponent'
 function Board({ data }) {
     return (
         <Fragment>
-            <BoardComponent board={data.board}>
-                <CommentComponent comment={data.comment}></CommentComponent>
-            </BoardComponent>
+            <BoardComponent board={data.board} comment={data.comment} />
         </Fragment>
     )
 }

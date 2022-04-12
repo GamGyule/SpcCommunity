@@ -35,7 +35,6 @@
 .BoardContents {
   position: relative;
   padding: 10px;
-  background-color: #ddd;
 }
 
 .ContentArea {
@@ -73,6 +72,24 @@
 .Up:hover,
 .Down:hover {
   cursor: pointer;
+}
+
+.CommentArea {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.CommentArea li {
+  padding: 10px;
+  border-top: 1px solid rgb(153, 153, 153);
+}
+
+.CommentMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 

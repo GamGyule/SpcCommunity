@@ -1,8 +1,6 @@
 package com.spc.comunity.dto;
 
-import java.sql.Date;
-
-import javax.persistence.Table;
+import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,11 +27,11 @@ public class HumorBoardDto {
 	
 	private int warning;
 	
-	private Date regDate;
+	private Timestamp regDate;
 	
 	private String reg;
 	
-	private Date upDate;
+	private Timestamp upDate;
 	
 	private int viewPoint;
 	

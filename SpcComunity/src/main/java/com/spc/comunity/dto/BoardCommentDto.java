@@ -1,5 +1,7 @@
 package com.spc.comunity.dto;
 
+import java.sql.Timestamp;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +22,7 @@ public class BoardCommentDto {
 
 	private String commentWriter;
 
-	private String regDate;
+	private Timestamp regDate;
 
 	private String upIdx;
 

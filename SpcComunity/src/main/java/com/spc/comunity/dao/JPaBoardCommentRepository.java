@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.spc.comunity.entity.BoardComment;
 
 @Repository
-public interface JPaBoardCommentRepository extends JpaRepository<BoardComment, String>{
+public interface JpaBoardCommentRepository extends JpaRepository<BoardComment, String>{
 	
 }

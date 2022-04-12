@@ -1,8 +1,6 @@
 package com.spc.comunity.dto;
 
-import java.util.Date;
-
-import javax.persistence.Table;
+import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,7 +27,7 @@ public class UserInfoDto {
 	
 	private String token;
 	
-	private Date regDate;
+	private Timestamp regDate;
 	
 	private int authCode = 0;
 	
@@ -39,7 +37,7 @@ public class UserInfoDto {
 	
 	private int level = 1;
 	
-	private Date loginTime;
+	private Timestamp loginTime;
 	
 	private int pwdFailCount;
 	

@@ -1,5 +1,6 @@
 package com.spc.comunity.controller;
 
+import java.text.DateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +31,7 @@ public class FreeBoardController {
 	@Autowired
 	private BoardCommentService boardCommentService;
 
-	private Gson gson = new Gson().newBuilder().setDateFormat("yyyy.MM.dd HH:mm").create();
+	private Gson gson = new Gson().newBuilder().setDateFormat("yyyy-MM-dd HH:mm").create();
 
 	// 자유게시판 목록조회
 	@GetMapping("/board/free")
@@ -53,6 +54,8 @@ public class FreeBoardController {
 		map.put("board", humorDto);
 		map.put("comment", commentDto);
 		String json = gson.toJson(map);
+		
+		System.out.println(json);
 
 		return json;
 	}

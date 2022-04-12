@@ -1,5 +1,6 @@
 package com.spc.comunity.entity;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -45,7 +46,7 @@ public class UserInfo {
 	private String token;
 	
 	@Column(name = "REG_DATE")
-	private Date regDate;
+	private Timestamp regDate;
 
 	@Column(name = "AUTH_CODE")
 	private int authCode;
@@ -60,7 +61,7 @@ public class UserInfo {
 	private int level;
 	
 	@Column(name = "LOGIN_TIME")
-	private Date loginTime;
+	private Timestamp loginTime;
 	
 	@Column(name = "PWD_FAIL_CNT")
 	private int pwdFailCount;
@@ -77,7 +78,7 @@ public class UserInfo {
 				.email(userInfo.getEmail())
 				.platform(userInfo.getPlatform())
 				.token(userInfo.getToken())
-				.regDate(new Date())
+				.regDate(new Timestamp(System.currentTimeMillis()))
 				.authCode(userInfo.getAuthCode())
 				.authName(userInfo.getAuthName())
 				.point(userInfo.getPoint())

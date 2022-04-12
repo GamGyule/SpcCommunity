@@ -14,7 +14,7 @@
 }
 
 .TableStyle td:nth-child(2) {
-    width: calc(100% - 300px);
+    width: calc(100% - 410px);
 }
 
 .TableStyle td:nth-child(2):hover {
@@ -27,7 +27,7 @@
 }
 
 .TableStyle td:nth-child(4) {
-    width: 20px;
+    width: 100px;
     text-align: center;
 }
 
@@ -42,5 +42,5 @@
 }
 
 .BoardArea {
-    width: 80%;
+    width: 100%;
 }
