@@ -21,8 +21,8 @@ public class HumorBoardService {
 	private MybatisHumorBoardRepository mybatisHumorBoardRepository;
 	
 	@Transactional
-	public List<HumorBoardDto> findAll() {
-		return mybatisHumorBoardRepository.findAll();
+	public int findCountAll() {
+		return mybatisHumorBoardRepository.findCountAll();
 	}
 	
 	@Transactional

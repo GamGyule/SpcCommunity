@@ -21,8 +21,8 @@ public class FreeBoardService {
 	private MybatisFreeBoardRepository mybatisFreeBoardRepository;
 	
 	@Transactional
-	public List<FreeBoardDto> findAll() {
-		return mybatisFreeBoardRepository.findAll();
+	public int findCountAll() {
+		return mybatisFreeBoardRepository.findCountAll();
 	}	
 	
 	@Transactional

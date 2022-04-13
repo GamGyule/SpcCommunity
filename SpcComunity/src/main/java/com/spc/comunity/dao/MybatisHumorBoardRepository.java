@@ -8,7 +8,7 @@ import com.spc.comunity.dto.HumorBoardDto;
 
 @Mapper
 public interface MybatisHumorBoardRepository {
-	List<HumorBoardDto> findAll();
+	int findCountAll();
 	
 	List<HumorBoardDto> findPage(int page);
 	

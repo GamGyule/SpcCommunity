@@ -1,14 +1,12 @@
 import axios from 'axios';
-import { useEffect } from 'react';
-import { useStore } from '../../store/board.js'
+import { useStore } from '../../store/store';
 import Styles from '../../styles/ListStyle.module.scss'
 import Link from 'next/link';
 
 
-
 function BoardReturn(props) {
 
-    let list = props.data;
+    let list = props.data.board;
     let url;
     switch (props.board) {
         case "자유 게시판":
@@ -20,17 +18,47 @@ function BoardReturn(props) {
     }
 
     return (
-        list.map(
-            board =>
+        list.map(function (board) {
+            let regDate = new Date(board.regDate);
+            let today = new Date();
+            let betweenTime = Math.floor((today.getTime() - regDate.getTime()) / 1000 / 60);
+            let betweenTimeHour = Math.floor(betweenTime / 60);
+            let betweenTimeDay = Math.floor(betweenTime / 60 / 24);
+            let showDate;
+            // 방금 전
+            if (betweenTime < 1) {
+                showDate = "방금 전";
+            }
+            // 몇 분 전
+            else if (betweenTime < 60) {
+                showDate = betweenTime + " 분 전";
+            } else {
+                // 시간 전
+                if (betweenTimeHour < 24) {
+                    showDate = betweenTimeHour + " 시간 전";
+                } else {
+                    // 몇 일 전
+                    if (betweenTimeDay < 365) {
+                        showDate = (board.regDate).substr(0, 10);
+                    }
+                    // 몇 년 전
+                    else {
+                        showDate = (board.regDate).substr(0, 10);
+                    }
+                }
+            }
+
+            return (
                 <tr key={board.idx}>
                     <td> 탭{board.idx} </td>
                     <td> <Link href={url + "/" + board.idx}>{board.title}</Link></td>
                     <td> {board.reg} </td>
-                    <td> {board.regDate} </td>
+                    <td> {showDate} </td>
                     <td> {board.thumbsUp - board.thumbsDown} </td>
                     <td> {board.viewPoint} </td>
                 </tr>
-        )
+            )
+        })
     )
 }
 

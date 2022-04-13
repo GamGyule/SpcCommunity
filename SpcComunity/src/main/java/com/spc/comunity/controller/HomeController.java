@@ -1,7 +1,7 @@
 package com.spc.comunity.controller;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -61,7 +61,7 @@ public class HomeController {
 			userInfoDto.setPassword(securePw);
 			userInfoDto.setUserName(req.getParameter("username"));
 			userInfoDto.setEmail(req.getParameter("email"));
-			userInfoDto.setRegDate(new Date());
+			userInfoDto.setRegDate(new Timestamp(System.currentTimeMillis()));
 			userInfoDto.setSalt(salt);
 			
 			

@@ -3,6 +3,9 @@
 
 <mapper namespace="com.spc.comunity.dao.MybatisFreeBoardRepository">
 
+	<select id="findCountAll" resultType="Integer">
+		select count(*) from TBL_FREE_BOARD;
+	</select>
 
 	<select id="findPage"
 		resultType="com.spc.comunity.dto.FreeBoardDto" parameterType="int">

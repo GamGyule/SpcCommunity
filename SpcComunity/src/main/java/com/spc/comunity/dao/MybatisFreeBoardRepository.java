@@ -8,7 +8,7 @@ import com.spc.comunity.dto.FreeBoardDto;
 
 @Mapper
 public interface MybatisFreeBoardRepository {
-	List<FreeBoardDto> findAll();
+	int findCountAll();
 	
 	List<FreeBoardDto> findById(int idx);
 	

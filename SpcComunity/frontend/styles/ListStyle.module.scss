@@ -1,8 +1,13 @@
 .TableStyle {
     width: 100%;
-    border-spacing: 0px;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
+.TableStyle td {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
 
 .TableStyle tr:hover {
     background-color: #ddd;

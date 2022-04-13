@@ -1,0 +1,18 @@
+.PagingArea {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.PagingArea span {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.PagingArea span:hover {
+    cursor: pointer;
+    background-color: #ddd;
+}

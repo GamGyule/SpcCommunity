@@ -35,10 +35,31 @@ public class FreeBoardController {
 
 	// 자유게시판 목록조회
 	@GetMapping("/board/free")
-	public String freeList(@RequestParam(value = "page", defaultValue = "0") int _page) {
-		List<FreeBoardDto> list = freeBoardService.findPage(_page);
+	public String freeList(@RequestParam("page") int page) {
+		List<FreeBoardDto> list = freeBoardService.findPage((page-1)*20);
+		int count = freeBoardService.findCountAll();
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("board", list);
+		map.put("boardCount", count/10);
 
-		String json = gson.toJson(list);
+		String json = gson.toJson(map);
+
+		return json;
+	}
+	
+
+	@GetMapping("/board/humor")
+	public String humorList(@RequestParam("page") int page) {
+		System.out.println(page);
+		List<HumorBoardDto> list = humorBoardService.findPage((page-1)*20);
+		int count = humorBoardService.findCountAll();
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("board", list);
+		map.put("boardCount", count/10);
+
+		String json = gson.toJson(map);
 
 		return json;
 	}
@@ -74,15 +95,6 @@ public class FreeBoardController {
 		return json;
 	}
 
-	@GetMapping("/board/humor")
-	public String humorList(@RequestParam(value = "page", defaultValue = "0") int _page) {
-
-		List<HumorBoardDto> list = humorBoardService.findPage(_page);
-
-		String json = gson.toJson(list);
-
-		return json;
-	}
 
 	@GetMapping("/board/humor/lately")
 	public String humorLately() {
