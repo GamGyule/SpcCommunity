@@ -25,5 +25,6 @@ public class BoardCommentDto {
 	private Timestamp regDate;
 
 	private String upIdx;
+	
 
 }

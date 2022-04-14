@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -22,6 +23,7 @@ import lombok.NoArgsConstructor;
 @Builder(builderMethodName = "FreeBoardBuilder")
 @Table(name="TBL_FREE_BOARD")
 public class FreeBoard {
+	
 	@Id
 	private int idx;
 	
