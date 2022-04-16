@@ -71,7 +71,7 @@ const ListBoardComponent = (props) => (
                     <tr>
                         <th>탭</th>
                         <th>제목 </th>
-                        <th>작성자 </th>
+                        <th >작성자 </th>
                         <th>작성일 </th>
                         <th>추천 </th>
                         <th>조회수</th>
