@@ -36,6 +36,8 @@ public class FreeBoardDto {
 	
 	private int viewPoint;
 	
+	private String useYn;
+	
 /*	@Builder
 	public FreeBoardDto(int idx, String title, String contents, String writer, int thumbsUp, int thumbsDown, int warning, Timestamp regDate,
 			String reg, Timestamp upDate, int viewPoint) {

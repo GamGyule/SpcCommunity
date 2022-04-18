@@ -54,6 +54,9 @@ public class FreeBoard {
 	@Column(name ="UP_DATE")
 	private Timestamp upDate;
 	
+	@Column(name ="USE_YN")
+	private String useYn;
+	
 	@Column(name ="VIEW_POINT",columnDefinition ="integer default 0")
 	private int viewPoint;
 
@@ -70,7 +73,8 @@ public class FreeBoard {
 				.regDate(freeBoard.getRegDate())
 				.reg(freeBoard.getReg())
 				.upDate(freeBoard.getUpDate())
-				.viewPoint(freeBoard.getViewPoint());
+				.viewPoint(freeBoard.getViewPoint())
+				.useYn(freeBoard.getUseYn());
 	}
 	
 }
