@@ -48,7 +48,7 @@ public class FreeBoardController {
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("board", list);
-		map.put("boardCount", count/10);
+		map.put("boardCount", count);
 
 		String json = gson.toJson(map);
 
@@ -64,7 +64,7 @@ public class FreeBoardController {
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("board", list);
-		map.put("boardCount", count/10);
+		map.put("boardCount", count);
 
 		String json = gson.toJson(map);
 

@@ -5,39 +5,14 @@ import Layout from '../components/public/Layout';
 import { useStore } from '../store/store.js'
 import ListComponent from '../components/common/ListBoardComponent.js'
 import Link from 'next/link';
-import Styles from '../styles/Paging.module.scss'
+import PagingComponent from '../components/common/PagingComponent';
 
-function BoardPaging(data) {
-    let currPage = useStore((state) => state.page);
-    let boardLength = data.boardCount;
-    let boardSlice = 10;
-
-    let indexOfFirst = currPage;
-    let indexOfLast = ((currPage + boardSlice) - 1) > boardLength ? boardLength : (currPage + boardSlice) - 1;
-
-    const rendering = () => {
-        const result = [];
-        for (let i = indexOfFirst; i <= indexOfLast; i++) {
-            if (i == currPage) {
-                result.push(<Link key={i} href={'/humor?page=' + i}><span>{i}</span></Link>);
-            } else {
-                result.push(<Link key={i} href={'/humor?page=' + i}><span>{i}</span></Link>);
-            }
-        }
-        return result;
-    }
-
-    return rendering()
-
-}
-const HumorBoard = ({ data }) => (
+const HumorBoard = ({ data, page }) => (
     <Layout>
         <div className='center-container'>
             <div className='center-child'>
                 <ListComponent board="유머 게시판" data={data}></ListComponent>
-                <div className={Styles.PagingArea}>
-                    {BoardPaging(data)}
-                </div>
+                <PagingComponent data={data} page={page} board='humor'></PagingComponent>
             </div>
         </div>
     </Layout>
@@ -54,7 +29,7 @@ export const getServerSideProps = async ({ query: { page } }) => {
 
 
 
-    return { props: { data: data } }
+    return { props: { data: data, page: page } }
 }
 
 export default HumorBoard;
