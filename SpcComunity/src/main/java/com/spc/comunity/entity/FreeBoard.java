@@ -1,6 +1,7 @@
 package com.spc.comunity.entity;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -59,7 +60,7 @@ public class FreeBoard {
 	
 	@Column(name ="VIEW_POINT",columnDefinition ="integer default 0")
 	private int viewPoint;
-
+	
 	
 	public static FreeBoardBuilder builder(FreeBoardDto freeBoard) {
 		return FreeBoardBuilder()
@@ -76,5 +77,17 @@ public class FreeBoard {
 				.viewPoint(freeBoard.getViewPoint())
 				.useYn(freeBoard.getUseYn());
 	}
+	
+	
+	//
+	public void update(String title, String contents, String writer) {
+		this.title = title;
+		this.contents = contents;
+		this.writer = writer;
+		this.upDate = upDate;
+	}
+	
+	
+	
 	
 }
