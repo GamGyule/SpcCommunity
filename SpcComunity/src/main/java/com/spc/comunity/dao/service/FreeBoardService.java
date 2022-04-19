@@ -59,4 +59,13 @@ public class FreeBoardService {
 		return jpaFreeBoardRepository.save(freeBoard);
 	}
 	
+	//게시판 수정
+	/*@Transactional
+	public Long update(final Long id, final FreeBoardDto params) {
+		FreeBoard entity = jpaFreeBoardRepository.findById(id).orElseThrow(() -> new CustomException(ErrorCode.POSTS_NOT_FOUND));
+	    entity.update(params.getTitle(), params.getContent(), params.getWriter());
+	    return id;
+	} */
+	
+	
 }

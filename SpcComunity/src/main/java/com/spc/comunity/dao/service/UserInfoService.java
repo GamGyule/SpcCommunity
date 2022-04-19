@@ -29,8 +29,7 @@ public class UserInfoService {
 	}
 	
 	@Transactional
-	public UserInfo userInfoSave(UserInfo userInfo) {
-		
+	public UserInfo userInfoSave(UserInfo userInfo) {	
 		return jpaUserInfoRepository.save(userInfo);
 	}
 	
