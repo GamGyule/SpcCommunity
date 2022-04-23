@@ -4,7 +4,9 @@ import axios from 'axios';
 
 export const useStore = create(devtools((set) => ({
     walletAddress: "",
-    backData: "",
-    page: 1
+    page: 1,
+    userInfo: {
+    }
+
 
 })))

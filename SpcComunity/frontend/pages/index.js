@@ -4,7 +4,6 @@ import Styles from '../styles/Home.module.scss'
 import MainLatelyComponent from '../components/common/MainLatelyComponent'
 import axios from 'axios'
 
-
 async function testKaikasLogin() {
   const accounts = await klaytn.enable();
   useStore.setState(state => ({ walletAddress: accounts[0] }));
@@ -29,7 +28,6 @@ export const getServerSideProps = async (context) => {
   });
 
   await axios.get('http://127.0.0.1:9999/api/board/humor/lately').then(function (e) {
-    console.log(e.data)
     humorData = e.data;
   });
 
@@ -37,7 +35,6 @@ export const getServerSideProps = async (context) => {
 
   return { props: { freeData: freeData, humorData: humorData } }
 }
-
 export default function Home({ freeData, humorData }) {
   return (
     <Layout>

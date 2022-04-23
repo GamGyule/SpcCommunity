@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export const useStore = create(devtools((set) => ({
 
-    boardList: [],
+    //boardList: [],
 
 
 
