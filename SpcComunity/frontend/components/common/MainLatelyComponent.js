@@ -6,7 +6,6 @@ import Link from 'next/link';
 
 
 function MainListReturn(boardName, board) {
-    console.log(board)
     let url;
     switch (boardName) {
         case "자유게시판":

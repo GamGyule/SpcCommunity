@@ -51,7 +51,7 @@ function BoardReturn(props) {
             return (
                 <tr key={board.idx}>
                     <td> 탭{board.idx} </td>
-                    <td> <Link href={url + "/" + board.idx}>{board.title}</Link></td>
+                    <td> <Link href={url + "/" + board.idx}><span className={Styles.Title}>{board.title}[{board.commentCnt}]</span></Link></td>
                     <td> {board.reg} </td>
                     <td> {showDate} </td>
                     <td> {board.thumbsUp - board.thumbsDown} </td>
