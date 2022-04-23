@@ -12,8 +12,11 @@ import com.spc.comunity.entity.BoardComment;
 public interface MybatisBoardCommentRepository {
 
 	List<BoardCommentDto> findHumorComment(int boardNum);
-	
+
 	List<BoardCommentDto> findFreeComment(int boardNum);
-	
-	
+
+	List<BoardCommentDto> findHumorLately();
+
+	List<BoardCommentDto> findFreeLately();
+
 }

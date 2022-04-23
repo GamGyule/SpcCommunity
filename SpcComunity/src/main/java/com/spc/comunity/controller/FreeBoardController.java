@@ -109,6 +109,7 @@ public class FreeBoardController {
 		List<HumorBoardDto> list = humorBoardService.findLately();
 
 		String json = gson.toJson(list);
+		System.out.println(json);
 
 		return json;
 	}
@@ -119,6 +120,7 @@ public class FreeBoardController {
 		List<FreeBoardDto> list = freeBoardService.findLately();
 
 		String json = gson.toJson(list);
+		System.out.println(json);
 
 		return json;
 	}

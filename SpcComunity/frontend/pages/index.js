@@ -29,6 +29,7 @@ export const getServerSideProps = async (context) => {
   });
 
   await axios.get('http://127.0.0.1:9999/api/board/humor/lately').then(function (e) {
+    console.log(e.data)
     humorData = e.data;
   });
 
@@ -45,11 +46,10 @@ export default function Home({ freeData, humorData }) {
           <div className='center-child'>
             <div className={Styles.MainContent}>
               <div className={Styles.MainBanner}>
-
               </div>
               <div className={Styles.LatelyLayout}>
-                <MainLatelyComponent board="자유게시판" data={freeData}></MainLatelyComponent>
-                <MainLatelyComponent board="유머게시판" data={humorData}></MainLatelyComponent>
+                <MainLatelyComponent boardName="자유게시판" board={freeData}></MainLatelyComponent>
+                <MainLatelyComponent boardName="유머게시판" board={humorData}></MainLatelyComponent>
               </div>
             </div>
           </div>

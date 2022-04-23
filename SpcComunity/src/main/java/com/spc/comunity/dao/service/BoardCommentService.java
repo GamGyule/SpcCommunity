@@ -27,6 +27,16 @@ public class BoardCommentService {
 	@Transactional
 	public List<BoardCommentDto> findFreeComment(int boardNum) {
 		return mybatisBoardCommentRepository.findFreeComment(boardNum);
-	}	
+	}
+	
+	@Transactional
+	public List<BoardCommentDto> findHumorLately(){
+		return mybatisBoardCommentRepository.findHumorLately();
+	}
+	
+	@Transactional
+	public List<BoardCommentDto> findFreeLately(){
+		return mybatisBoardCommentRepository.findFreeLately();
+	}
 	
 }

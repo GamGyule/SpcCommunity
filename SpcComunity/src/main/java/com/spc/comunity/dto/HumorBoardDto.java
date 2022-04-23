@@ -35,4 +35,8 @@ public class HumorBoardDto {
 	
 	private int viewPoint;
 	
+	private int commentCnt;
+	
+	private String useYn;
+	
 }

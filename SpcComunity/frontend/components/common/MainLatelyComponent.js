@@ -5,13 +5,10 @@ import Link from 'next/link';
 
 
 
-function MainListReturn(props) {
-
-    let list = props.data;
-    let board = props.board;
-
+function MainListReturn(boardName, board) {
+    console.log(board)
     let url;
-    switch (board) {
+    switch (boardName) {
         case "자유게시판":
             url = "free";
             break;
@@ -20,25 +17,20 @@ function MainListReturn(props) {
             break;
     }
 
-    if (list.length < 1) {
-        console.log("No Data");
-    }
-
     return (
-        list.map(
-            board =>
-                <li key={board.idx}>
-                    <Link href={'/' + url + '/' + board.idx}><div><div>{board.title}</div><div>[10]</div><div>[?]</div></div></Link></li >
+
+        board.map(
+            item =>
+                <li key={item.idx}><Link href={'/' + url + '/' + item.idx}><div><div>{item.title}</div><div>[{item.commentCnt}]</div></div></Link></li>
         )
     )
 }
 
-const ListBoardComponent = (props) => (
+const ListBoardComponent = ({ boardName, board, comment }) => (
     < div >
-        <h2>{props.board}</h2>
-
+        <h2>{boardName}</h2>
         <ul className={Styles.TableStyle}>
-            {MainListReturn(props)}
+            {MainListReturn(boardName, board, comment)}
         </ul>
 
     </div >

@@ -36,6 +36,8 @@ public class FreeBoardDto {
 	
 	private int viewPoint;
 	
+	private int commentCnt;
+	
 	private String useYn;
 	
 	

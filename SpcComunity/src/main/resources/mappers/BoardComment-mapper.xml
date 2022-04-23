@@ -13,7 +13,15 @@
 		resultType="com.spc.comunity.dto.BoardCommentDto" parameterType="Integer">
 		select * from TBL_FREE_COMMENT where board_idx = #{boardNum}
 	</select>
-
-
+	
+	<select id="findHumorLately"
+		resultType="com.spc.comunity.dto.BoardCommentDto" parameterType="Integer">
+		select * from TBL_HUMOR_COMMENT order by idx desc limit 0,5;
+	</select>
+	
+	<select id="findFreeLately"
+		resultType="com.spc.comunity.dto.BoardCommentDto" parameterType="Integer">
+		select * from TBL_FREE_COMMENT order by idx desc limit 0,5;
+	</select>
 
 </mapper>

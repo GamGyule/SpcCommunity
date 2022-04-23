@@ -55,11 +55,15 @@ public class FreeBoard {
 	@Column(name ="UP_DATE")
 	private Timestamp upDate;
 	
+	@Column(name ="VIEW_POINT",columnDefinition ="integer default 0")
+	private int viewPoint;
+	
+	@Column(name="COMMENT_CNT")
+	private int commentCnt;
+	
 	@Column(name ="USE_YN")
 	private String useYn;
 	
-	@Column(name ="VIEW_POINT",columnDefinition ="integer default 0")
-	private int viewPoint;
 	
 	
 	public static FreeBoardBuilder builder(FreeBoardDto freeBoard) {
@@ -75,6 +79,7 @@ public class FreeBoard {
 				.reg(freeBoard.getReg())
 				.upDate(freeBoard.getUpDate())
 				.viewPoint(freeBoard.getViewPoint())
+				.commentCnt(freeBoard.getCommentCnt())
 				.useYn(freeBoard.getUseYn());
 	}
 	
@@ -84,7 +89,7 @@ public class FreeBoard {
 		this.title = title;
 		this.contents = contents;
 		this.writer = writer;
-		this.upDate = upDate;
+		this.upDate = new Timestamp(System.currentTimeMillis());
 	}
 	
 	
