@@ -5,20 +5,20 @@
 }
 
 .FooterBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0px;
-    width: $FIXED_WIDTH;
-    margin: 0 auto;
-    border: 1px dashed blue;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+    // padding: 8px 0px;
+    // width: $FIXED_WIDTH;
+    // margin: 0 auto;
+    // border: 1px dashed blue;
 }
 
 
 @media (max-width: $FIXED_WIDTH) {
-    .FooterBar {
-        width: $FULL_WIDTH;
-    }
+    // .FooterBar {
+    //     width: $FULL_WIDTH;
+    // }
 
 }
 

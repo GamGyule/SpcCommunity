@@ -1,7 +1,11 @@
 import Layout from '../components/public/Layout'
 import { useStore } from '../store/store.js'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import Styles from '../styles/Home.module.scss'
 import MainLatelyComponent from '../components/common/MainLatelyComponent'
+import SidePanel from '../components/common/SidePanel'
 import axios from 'axios'
 
 async function testKaikasLogin() {
@@ -38,20 +42,26 @@ export const getServerSideProps = async (context) => {
 export default function Home({ freeData, humorData }) {
   return (
     <Layout>
-      <div className='center-container'>
+      <Container className='center-container'>
         <div className={Styles.MainContainer}>
           <div className='center-child'>
             <div className={Styles.MainContent}>
               <div className={Styles.MainBanner}>
               </div>
-              <div className={Styles.LatelyLayout}>
-                <MainLatelyComponent boardName="자유게시판" board={freeData}></MainLatelyComponent>
-                <MainLatelyComponent boardName="유머게시판" board={humorData}></MainLatelyComponent>
-              </div>
+              <Row className={Styles.LatelyLayout}>
+                <Col xs={12} sm={6}>
+                  <MainLatelyComponent boardName="자유게시판" board={freeData}></MainLatelyComponent>
+                </Col>
+                <Col xs={12} sm={6}>
+                  <MainLatelyComponent boardName="유머게시판" board={humorData}></MainLatelyComponent>
+                </Col>
+              </Row>
             </div>
           </div>
         </div>
-      </div>
+      </Container>
+
+      <SidePanel>ddd</SidePanel>
     </Layout>
 
   )

@@ -14,8 +14,19 @@ a {
   text-decoration: none;
 }
 
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
 * {
   box-sizing: border-box;
+}
+
+.container {
+  max-width: $FIXED_WIDTH;
 }
 
 .center-container {
