@@ -15,7 +15,7 @@ function SidePanel({ board, comment }) {
                     <h5>BEST 게시글 혹은 순위</h5> <a>더보기</a>
                 </div>
                 <ul>
-                    <li><a>title</a></li>
+                    <li><a>title test</a></li>
                 </ul>
             </div>
         </div>     
