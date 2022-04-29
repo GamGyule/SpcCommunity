@@ -43,25 +43,31 @@ export default function Home({ freeData, humorData }) {
   return (
     <Layout>
       <Container className='center-container'>
-        <div className={Styles.MainContainer}>
-          <div className='center-child'>
-            <div className={Styles.MainContent}>
-              <div className={Styles.MainBanner}>
+        <Row>
+          <Col className={Styles.MainContainer} xs={12} md={9}>
+            <div className='center-child'>
+              <div className={Styles.MainContent}>
+                <div className={Styles.MainBanner}>
+                </div>
+                <Row className={Styles.LatelyLayout}>
+                  <Col xs={12} sm={6}>
+                    <MainLatelyComponent boardName="자유게시판" board={freeData}></MainLatelyComponent>
+                  </Col>
+                  <Col xs={12} sm={6}>
+                    <MainLatelyComponent boardName="유머게시판" board={humorData}></MainLatelyComponent>
+                  </Col>
+                </Row>
               </div>
-              <Row className={Styles.LatelyLayout}>
-                <Col xs={12} sm={6}>
-                  <MainLatelyComponent boardName="자유게시판" board={freeData}></MainLatelyComponent>
-                </Col>
-                <Col xs={12} sm={6}>
-                  <MainLatelyComponent boardName="유머게시판" board={humorData}></MainLatelyComponent>
-                </Col>
-              </Row>
             </div>
-          </div>
-        </div>
+          </Col>
+
+          {/* 사이드 패널 */}
+          <Col xs={12} md={3} className='d-none d-md-block'>
+            <SidePanel />
+          </Col>
+        </Row>
       </Container>
 
-      <SidePanel>ddd</SidePanel>
     </Layout>
 
   )
