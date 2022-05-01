@@ -52,7 +52,7 @@ function BoardReturn(props) {
                 <tr key={board.idx}>
                     <td> 탭{board.idx} </td>
                     <td> <Link href={url + "/" + board.idx}><span className={Styles.Title}>{board.title}[{board.commentCnt}]</span></Link></td>
-                    <td> {board.reg} </td>
+                    <td> {board.writer} </td>
                     <td> {showDate} </td>
                     <td> {board.thumbsUp - board.thumbsDown} </td>
                     <td> {board.viewPoint} </td>

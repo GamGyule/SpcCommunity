@@ -13,7 +13,7 @@ function Board({ board, comment }) {
             <div className='center-container'>
                 <div className='center-child'>
                     <div>
-                        <div className={Styles.BoardTitle}><h2>{board.title}</h2><div className={Styles.RegBox}><div className={Styles.Reg}>{board.reg}</div><div className={Styles.RegDate}>{board.regDate}</div></div></div>
+                        <div className={Styles.BoardTitle}><h2>{board.title}</h2><div className={Styles.RegBox}><div className={Styles.Reg}>{board.writer}</div><div className={Styles.RegDate}>{board.regDate}</div></div></div>
                         <div>
                             <div className={Styles.BoardContents}>
                                 <div className={Styles.ContentArea}>{board.contents}</div>
