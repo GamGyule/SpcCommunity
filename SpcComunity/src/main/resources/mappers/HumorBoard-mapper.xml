@@ -9,13 +9,13 @@
 
 	<select id="findPage"
 		resultType="com.spc.comunity.dto.HumorBoardDto" parameterType="int">
-		select board.IDX , board.TITLE ,board.CONTENTS ,board.THUMBS_UP ,board.THUBMS_DOWN ,board.WARNING,board.REG_DATE ,board.REG, board.UP_DATE ,board.VIEW_POINT ,board.USE_YN , cast((select count(*) from TBL_HUMOR_COMMENT cmt where board_idx = board.IDX) as unsigned) as COMMENT_CNT 
+		select board.IDX , board.TITLE ,board.CONTENTS ,board.THUMBS_UP ,board.THUMBS_DOWN ,board.WARNING,board.REG_DATE ,board.WRITER, board.UP_DATE ,board.VIEW_POINT ,board.USE_YN , cast((select count(*) from TBL_HUMOR_COMMENT cmt where board_idx = board.IDX) as unsigned) as COMMENT_CNT 
 		from TBL_HUMOR_BOARD board order by idx desc limit ${page}, 20;
 	</select>
 	
 	<select id="findLately"
 		resultType="com.spc.comunity.dto.HumorBoardDto" parameterType="int">
-		select board.IDX , board.TITLE ,board.CONTENTS ,board.THUMBS_UP ,board.THUBMS_DOWN ,board.WARNING,board.REG_DATE ,board.REG, board.UP_DATE ,board.VIEW_POINT ,board.USE_YN , cast((select count(*) from TBL_HUMOR_COMMENT cmt where board_idx = board.IDX) as unsigned) as COMMENT_CNT 
+		select board.IDX , board.TITLE ,board.CONTENTS ,board.THUMBS_UP ,board.THUMBS_DOWN ,board.WARNING,board.REG_DATE ,board.WRITER, board.UP_DATE ,board.VIEW_POINT ,board.USE_YN , cast((select count(*) from TBL_HUMOR_COMMENT cmt where board_idx = board.IDX) as unsigned) as COMMENT_CNT 
 		from TBL_HUMOR_BOARD board order by idx desc limit 0,5;
 	</select>
 	
