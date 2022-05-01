@@ -30,7 +30,7 @@ public class FreeBoardService {
 	@Transactional
 	public List<FreeBoardDto> findById(int idx) {
 		return mybatisFreeBoardRepository.findById(idx);
-	}	
+	}
 	
 	
 	@Transactional

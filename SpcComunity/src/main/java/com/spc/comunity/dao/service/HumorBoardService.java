@@ -1,6 +1,7 @@
 package com.spc.comunity.dao.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.spc.comunity.dao.JpaHumorBoardRepository;
 import com.spc.comunity.dao.MybatisHumorBoardRepository;
 import com.spc.comunity.dto.HumorBoardDto;
+import com.spc.comunity.entity.HumorBoard;
 
 
 @Service
@@ -38,6 +40,11 @@ public class HumorBoardService {
 	@Transactional
 	public HumorBoardDto findBoard(int boardNum){
 		return mybatisHumorBoardRepository.findBoard(boardNum);
+	}
+	
+	@Transactional
+	public HumorBoard save(HumorBoard humorBoard) {
+		return humorBoardRepository.save(humorBoard);
 	}
 	
 	

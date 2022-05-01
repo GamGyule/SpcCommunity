@@ -29,8 +29,6 @@ public class HumorBoardDto {
 	
 	private Timestamp regDate;
 	
-	private String reg;
-	
 	private Timestamp upDate;
 	
 	private int viewPoint;

@@ -7,11 +7,7 @@ import com.spc.comunity.dto.FreeBoardDto;
 import com.spc.comunity.entity.FreeBoard;
 
 @Repository
-public interface JpaFreeBoardRepository extends JpaRepository<FreeBoard, String> {
+public interface JpaFreeBoardRepository extends JpaRepository<FreeBoard, Integer> {
 	
 	FreeBoard save(final FreeBoardDto freeBoardDto);
-	
-	
-
-
 }

@@ -47,46 +47,41 @@ public class HumorBoard {
 	@Column(name ="REG_DATE")
 	private Timestamp regDate;
 	
-	@Column(name ="REG")
-	private String reg;
-	
 	@Column(name ="UP_DATE")
 	private Timestamp upDate;
 	
 	@Column(name ="VIEW_POINT",columnDefinition ="integer default 0")
-	private int viewPoint;
+	private Integer viewPoint = 0;
 	
-	@Column(name="COMMENT_CNT")
-	private int commentCnt;
+	@Column(name="COMMENT_CNT",columnDefinition ="integer default 0")
+	private Integer commentCnt = 0;
 	
 	@Column(name ="USE_YN")
 	private String useYn;
 	
 	
 	
-	public static HumorBoardBuilder builder(HumorBoardDto freeBoard) {
+	public static HumorBoardBuilder builder(HumorBoardDto humorBoard) {
 		return HumorBoardBuilder()
-				.idx(freeBoard.getIdx())
-				.title(freeBoard.getTitle())
-				.writer(freeBoard.getWriter())
-				.contents(freeBoard.getContents())
-				.thumbsUp(freeBoard.getThumbsDown())
-				.thumbsDown(freeBoard.getThumbsDown())
-				.warning(freeBoard.getWarning())
-				.regDate(freeBoard.getRegDate())
-				.reg(freeBoard.getReg())
-				.upDate(freeBoard.getUpDate())
-				.viewPoint(freeBoard.getViewPoint())
-				.commentCnt(freeBoard.getCommentCnt())
-				.useYn(freeBoard.getUseYn());
+				.idx(humorBoard.getIdx())
+				.title(humorBoard.getTitle())
+				.writer(humorBoard.getWriter())
+				.contents(humorBoard.getContents())
+				.thumbsUp(humorBoard.getThumbsDown())
+				.thumbsDown(humorBoard.getThumbsDown())
+				.warning(humorBoard.getWarning())
+				.regDate(new Timestamp(System.currentTimeMillis()))
+				.upDate(humorBoard.getUpDate())
+				.viewPoint(humorBoard.getViewPoint())
+				.commentCnt(humorBoard.getCommentCnt())
+				.useYn(humorBoard.getUseYn());
 	}
 	
 	
 	//
-	public void update(String title, String contents, String writer) {
+	public void update(String title, String contents) {
 		this.title = title;
 		this.contents = contents;
-		this.writer = writer;
 		this.upDate = new Timestamp(System.currentTimeMillis());
 	}
 	

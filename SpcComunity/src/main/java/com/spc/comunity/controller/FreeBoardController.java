@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,7 @@ import com.spc.comunity.dto.BoardCommentDto;
 import com.spc.comunity.dto.FreeBoardDto;
 import com.spc.comunity.dto.HumorBoardDto;
 import com.spc.comunity.entity.FreeBoard;
+import com.spc.comunity.entity.HumorBoard;
 
 @RestController
 @RequestMapping("/api")
@@ -128,13 +130,6 @@ public class FreeBoardController {
     public String freeWrite(){
         return "free/write";
     }
-    
-	/*
-	 * //유머게시판 글쓰기
-	 * 
-	 * @GetMapping("/board/humor/write") public String humorWrite(){ return
-	 * "humor/write"; }
-	 */
 	
 	//자유게시판 저장
 	@ResponseBody
@@ -144,20 +139,29 @@ public class FreeBoardController {
 		return freeBoard;
 	}
 	
-	/*
-	 * //유머게시판저장
-	 * 
-	 * @ResponseBody
-	 * 
-	 * @PostMapping("/board/humor/write") public HumorBoard
-	 * humorWriteSubmit(@RequestBody HumorBoard humorBoard) {
-	 * jpaHumorBoardRepository.save(humorBoard); return humorBoard; }
-	 */
 	
 	//자유게시판 글 업데이트
 	@GetMapping("/board/free/update")
 	public String freeUpdate() {
 		return "free/update";
 	}
+	
+	@PatchMapping("/board/humor/{boardNum}")
+	public String humorBoardUpdate(@PathVariable int boardNum, @RequestBody HumorBoardDto dto) {		
+		HumorBoardDto boardDto = humorBoardService.findBoard(dto.getIdx());
+		HumorBoard entity = HumorBoard.builder(dto).build();
+		entity.update(dto.getTitle(), dto.getContents());
+		humorBoardService.save(entity);
+		return entity.getContents();
+	}
+	
+	
+	@PostMapping("/board/humor/write")
+	public String humorBoardWrite(@RequestBody HumorBoardDto dto) {
+		HumorBoard humorBoard = HumorBoard.builder(dto).build();
+		humorBoardService.save(humorBoard);
+		return "";
+	}
+	
 
 }

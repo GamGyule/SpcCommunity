@@ -49,16 +49,13 @@ public class FreeBoard {
 	@Column(name ="REG_DATE")
 	private Timestamp regDate;
 	
-	@Column(name ="REG")
-	private String reg;
-	
 	@Column(name ="UP_DATE")
 	private Timestamp upDate;
 	
 	@Column(name ="VIEW_POINT",columnDefinition ="integer default 0")
 	private int viewPoint;
 	
-	@Column(name="COMMENT_CNT")
+	@Column(name="COMMENT_CNT",columnDefinition ="integer default 0")
 	private int commentCnt;
 	
 	@Column(name ="USE_YN")
@@ -76,7 +73,6 @@ public class FreeBoard {
 				.thumbsDown(freeBoard.getThumbsDown())
 				.warning(freeBoard.getWarning())
 				.regDate(freeBoard.getRegDate())
-				.reg(freeBoard.getReg())
 				.upDate(freeBoard.getUpDate())
 				.viewPoint(freeBoard.getViewPoint())
 				.commentCnt(freeBoard.getCommentCnt())
@@ -85,10 +81,9 @@ public class FreeBoard {
 	
 	
 	//
-	public void update(String title, String contents, String writer) {
+	public void update(String title, String contents) {
 		this.title = title;
 		this.contents = contents;
-		this.writer = writer;
 		this.upDate = new Timestamp(System.currentTimeMillis());
 	}
 	
