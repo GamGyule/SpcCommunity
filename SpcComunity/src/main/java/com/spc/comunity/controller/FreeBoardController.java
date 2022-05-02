@@ -131,19 +131,22 @@ public class FreeBoardController {
         return "free/write";
     }
 	
-	//자유게시판 저장
-	@ResponseBody
-	@PostMapping("/board/free/write")
-	public FreeBoard freeWriteSubmit(@RequestBody FreeBoard freeBoard) {
-		jpaFreeBoardRepository.save(freeBoard);
-		return freeBoard;
+	
+	@PatchMapping("/board/free/{boardNum}")
+	public String freeBoardUpdate(@PathVariable int boardNum, @RequestBody FreeBoardDto dto) {		
+		FreeBoardDto boardDto = freeBoardService.findBoard(dto.getIdx());
+		FreeBoard entity = FreeBoard.builder(dto).build();
+		entity.update(dto.getTitle(), dto.getContents());
+		freeBoardService.save(entity);
+		return entity.getContents();
 	}
 	
 	
-	//자유게시판 글 업데이트
-	@GetMapping("/board/free/update")
-	public String freeUpdate() {
-		return "free/update";
+	@PostMapping("/board/free/write")
+	public String freeBoardWrite(@RequestBody FreeBoardDto dto) {
+		FreeBoard freeBoard = FreeBoard.builder(dto).build();
+		freeBoardService.save(freeBoard);
+		return "";
 	}
 	
 	@PatchMapping("/board/humor/{boardNum}")
