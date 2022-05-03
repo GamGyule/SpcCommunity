@@ -125,12 +125,6 @@ public class FreeBoardController {
 		return json;
 	}
 	
-	//자유게시판 글쓰기
-    @GetMapping("/board/free/write")
-    public String freeWrite(){
-        return "free/write";
-    }
-	
 	
 	@PatchMapping("/board/free/{boardNum}")
 	public String freeBoardUpdate(@PathVariable int boardNum, @RequestBody FreeBoardDto dto) {		
