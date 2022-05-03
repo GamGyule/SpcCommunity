@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useStore } from '../../store/store';
+import {Container, Row, Col} from 'react-bootstrap'
 import Styles from '../../styles/ListStyle.module.scss'
 import Link from 'next/link';
 
@@ -63,27 +64,29 @@ function BoardReturn(props) {
 }
 
 const ListBoardComponent = (props) => (
-    < div className={Styles.BoardArea}>
-        <h2>{props.board}</h2>
-        <div>
-            <table className={Styles.TableStyle}>
-                <thead>
-                    <tr>
-                        <th>탭</th>
-                        <th>제목 </th>
-                        <th >작성자 </th>
-                        <th>작성일 </th>
-                        <th>추천 </th>
-                        <th>조회수</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        BoardReturn(props)
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div >
+    <Container>
+        < div className={Styles.BoardArea}>
+            <h2>{props.board}</h2>
+            <div>
+                <table className={Styles.TableStyle}>
+                    <thead>
+                        <tr>
+                            <th>탭</th>
+                            <th>제목 </th>
+                            <th >작성자 </th>
+                            <th>작성일 </th>
+                            <th>추천 </th>
+                            <th>조회수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            BoardReturn(props)
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div >
+    </Container>
 )
 export default ListBoardComponent;
