@@ -12,6 +12,7 @@ function FreeBoard({ data, page }) {
         <div className='center-child'>
           <ListComponent board="자유 게시판" data={data}></ListComponent>
           <PagingComponent data={data} page={page} board='free'></PagingComponent>
+          <input type="text"></input>
         </div>
       </div>
     </Layout>
