@@ -23,6 +23,27 @@
 		resultType="com.spc.comunity.dto.FreeBoardDto" parameterType="int">
 		select * from TBL_FREE_BOARD where idx = #{boardNum};
 	</select>
+	
+	<select id="search" resultType="com.spc.comunity.dto.FreeBoardDto" parameterType="map">
+		SELECT * 
+		  FROM TBL_FREE_BOARD
+		 WHERE 1=1 
+		<choose>
+			<when test="'title'.equals(name)">
+			 AND TITLE LIKE CONCAT('%',#{keyword},'%')
+			</when>
+			<when test="'contents'.equals(name)">
+			 AND CONTENTS LIKE CONCAT('%',#{keyword},'%')
+			</when>
+			<when test="'mix'.equals(name)">
+			 AND TITLE LIKE CONCAT('%',#{keyword},'%')
+			 AND CONTENTS LIKE CONCAT('%',#{keyword},'%')
+			</when>
+			<when test="'writer'.equals(name)">
+			 AND WRITER LIKE CONCAT('%',#{keyword},'%')
+			</when>
+		</choose>
+	</select>
 
 
 

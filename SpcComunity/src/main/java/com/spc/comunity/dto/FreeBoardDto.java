@@ -42,5 +42,11 @@ public class FreeBoardDto {
 	
 	private String useYn;
 	
+	private String category;
+	
+	private String name;
+	
+	private String keyword;
+	
 	
 }

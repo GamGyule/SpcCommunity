@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -55,6 +57,17 @@ public class FreeBoardController {
 		String json = gson.toJson(map);
 
 		return json;
+	}
+	
+	//검색
+	@GetMapping("/board/free/search")
+	@ResponseBody
+	public String freeBoardSearch(HttpServletRequest req) {		
+		
+		String name =  req.getParameter("name"); //selectbox name
+		String keyword = req.getParameter("keyword"); //키워드
+				
+		return freeBoardService.search(name,keyword);
 	}
 	
 
@@ -135,6 +148,8 @@ public class FreeBoardController {
 		return entity.getContents();
 	}
 	
+
+	
 	
 	@PostMapping("/board/free/write")
 	public String freeBoardWrite(@RequestBody FreeBoardDto dto) {
@@ -159,6 +174,8 @@ public class FreeBoardController {
 		humorBoardService.save(humorBoard);
 		return "";
 	}
+	
+
 	
 
 }
