@@ -53,21 +53,21 @@ const Header = () => {
                 </div>
             </div> */}
             
-            <>
-            <Navbar bg="light" expand="1" className="mb-3">
+
+            <Navbar key={'lg'} bg="light" expand={'lg'} className="mb-3">
                 <Container fluid>
                     <Navbar.Brand href="/" className="d-flex align-items-center justify-content-center">
                         <Image className={Styles.Logo} src={Logo} alt="Logo"></Image>
                         poople
                     </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
+                    <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
                     <Navbar.Offcanvas
-                        id="offcanvasNavbar-expand-md"
-                        aria-labelledby="offcanvasNavbarLabel-expand-md"
+                        id={`offcanvasNavbar-expand-lg`}
+                        aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
                         placement="end"
                     >
                         <Offcanvas.Header closeButton>
-                            <Offcanvas.Title id="offcanvasNavbarLabel-expand-md">
+                            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
                                 Offcanvas
                             </Offcanvas.Title>
                         </Offcanvas.Header>
@@ -77,15 +77,15 @@ const Header = () => {
                                 <Nav.Link href="/humor">유머 게시판</Nav.Link>
                                 <NavDropdown
                                     title="Dropdown"
-                                    id="offcanvasNavbarDropdown-expand-md"
+                                    id={`offcanvasNavbarDropdown-expand-lg`}
                                 >
                                     <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                                     <NavDropdown.Item href="#action4">
-                                    Another action
+                                        Another action
                                     </NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item href="#action5">
-                                    Something else here
+                                        Something else here
                                     </NavDropdown.Item>
                                 </NavDropdown>
                             </Nav>
@@ -102,7 +102,7 @@ const Header = () => {
                     </Navbar.Offcanvas>
                 </Container>
             </Navbar>
-            </>
+
         </div>
     );
     
