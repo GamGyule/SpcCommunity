@@ -137,8 +137,6 @@ public class FreeBoardController {
 
 		return json;
 	}
-	
-	
 	@PatchMapping("/board/free/{boardNum}")
 	public String freeBoardUpdate(@PathVariable int boardNum, @RequestBody FreeBoardDto dto) {		
 		FreeBoardDto boardDto = freeBoardService.findBoard(dto.getIdx());
@@ -148,11 +146,9 @@ public class FreeBoardController {
 		return entity.getContents();
 	}
 	
-
-	
-	
 	@PostMapping("/board/free/write")
 	public String freeBoardWrite(@RequestBody FreeBoardDto dto) {
+		dto.setUseYn("1");
 		FreeBoard freeBoard = FreeBoard.builder(dto).build();
 		freeBoardService.save(freeBoard);
 		return "";
@@ -170,6 +166,7 @@ public class FreeBoardController {
 	
 	@PostMapping("/board/humor/write")
 	public String humorBoardWrite(@RequestBody HumorBoardDto dto) {
+		dto.setUseYn("1");
 		HumorBoard humorBoard = HumorBoard.builder(dto).build();
 		humorBoardService.save(humorBoard);
 		return "";
