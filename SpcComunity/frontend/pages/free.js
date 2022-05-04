@@ -12,7 +12,7 @@ function FreeBoard({ data, page }) {
         <div className='center-child'>
           <ListComponent board="자유 게시판" data={data}></ListComponent>
           <PagingComponent data={data} page={page} board='free'></PagingComponent>
-          <form name="search-form" autocomplete="off">
+          <form name="search-form" autoComplete="off">
             <select name="name">
               <option value="">검색 내용 선택</option>
               <option value="title">제목</option>
