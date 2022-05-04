@@ -32,7 +32,7 @@ const Header = () => {
     return (
         <div>
             {/* <Head><script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script></Head> */}
-            <div className='container' style={{border: '1px solid red'}}>
+            {/* <div className='container' style={{border: '1px solid red'}}>
                 <div className={Styles.NavBarBox}>
                     <div className={Styles.NavBar}>
                         <div className={Styles.NavBarLogo}>
@@ -51,12 +51,15 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             
             <>
             <Navbar bg="light" expand="1" className="mb-3">
                 <Container fluid>
-                    <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+                    <Navbar.Brand href="/" className="d-flex align-items-center justify-content-center">
+                        <Image className={Styles.Logo} src={Logo} alt="Logo"></Image>
+                        poople
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
                     <Navbar.Offcanvas
                         id="offcanvasNavbar-expand-md"

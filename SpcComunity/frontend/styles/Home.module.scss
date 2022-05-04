@@ -4,15 +4,7 @@
 
 .MainContent {}
 
-// .LatelyLayout {
-//   width: 100%;
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-around;
-// }
-
 .MainBanner {
-  width: $FULL_WIDTH;
   height: 600px;
   background-color: #ddd;
   background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbi5kIT%2Fbtq6APFRYKL%2FrkN7VkOnxpyMovqytj0Ppk%2Fimg.png');
@@ -20,12 +12,3 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-
-// @media (max-width: $MOBILE_WIDTH) {
-//   .LatelyLayout {
-//     width: 100%;
-//     display: inline-block;
-//     align-items: center;
-//     justify-content: space-around;
-//   }
-// }

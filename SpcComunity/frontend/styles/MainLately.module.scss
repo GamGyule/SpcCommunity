@@ -23,22 +23,3 @@
     text-decoration: underline;
     cursor: pointer;
 }
-
-
-@media (max-width: $FIXED_WIDTH) {
-    .TableStyle {
-        width: 400px;
-    }
-}
-
-@media (max-width: 991px) {
-    .TableStyle {
-        width: 280px;
-    }
-}
-
-@media (max-width: $MOBILE_WIDTH) {
-    .TableStyle {
-        width: 100%;
-    }
-}

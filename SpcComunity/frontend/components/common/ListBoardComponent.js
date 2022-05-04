@@ -50,14 +50,22 @@ function BoardReturn(props) {
             }
 
             return (
-                <tr key={board.idx}>
-                    <td> 탭{board.idx} </td>
-                    <td> <Link href={url + "/" + board.idx}><span className={Styles.Title}>{board.title}[{board.commentCnt}]</span></Link></td>
-                    <td> {board.writer} </td>
-                    <td> {showDate} </td>
-                    <td> {board.thumbsUp - board.thumbsDown} </td>
-                    <td> {board.viewPoint} </td>
-                </tr>
+                <Col xs={12} key={board.idx} className={Styles.BoardListItem}>
+                    {/* 글번호
+                    <div>
+                        탭 {borard.idx}
+                    </div> 
+                    */}
+                    <h5 className={Styles.Title}> 
+                        <Link href={url + "/" + board.idx}><div>{board.title}[{board.commentCnt}]</div></Link> 
+                    </h5>
+                    <div className={Styles.BoardSubInfo}>
+                        <small> {board.writer} </small> |
+                        <small> {showDate} </small> |
+                        <small> 추천 {board.thumbsUp - board.thumbsDown} </small> |
+                        <small> 조회수 {board.viewPoint} </small> 
+                    </div>                        
+                </Col>  
             )
         })
     )
@@ -67,25 +75,13 @@ const ListBoardComponent = (props) => (
     <Container>
         < div className={Styles.BoardArea}>
             <h2>{props.board}</h2>
-            <div>
-                <table className={Styles.TableStyle}>
-                    <thead>
-                        <tr>
-                            <th>탭</th>
-                            <th>제목 </th>
-                            <th >작성자 </th>
-                            <th>작성일 </th>
-                            <th>추천 </th>
-                            <th>조회수</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            BoardReturn(props)
-                        }
-                    </tbody>
-                </table>
-            </div>
+            <Row>
+                <div>
+                    {
+                        BoardReturn(props)
+                    }
+                </div>
+            </Row>
         </div >
     </Container>
 )

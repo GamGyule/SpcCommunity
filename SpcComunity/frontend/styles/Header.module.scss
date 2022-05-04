@@ -9,7 +9,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 8px 12px;
-    width: $FIXED_WIDTH;
     margin: 0 auto;
     border: 1px dashed black;
 }
@@ -61,13 +60,6 @@
     display: none;
 }
 
-@media (max-width: $FIXED_WIDTH) {
-    .NavBar {
-        width: $FULL_WIDTH;
-    }
-
-}
-
 @media (max-width: 991px) {
     .NavBarLogo span {
         display: none;
@@ -79,23 +71,5 @@
 
     .NavMenu {
         margin: 0px 3%;
-    }
-}
-
-@media (max-width: $MOBILE_WIDTH) {
-    .NavMenu {
-        display: none;
-    }
-
-    .MobileMenu {
-        display: block;
-    }
-
-    .NavBarLogo span {
-        display: none !important;
-    }
-
-    .NavBar {
-        padding: 8px 2%;
     }
 }

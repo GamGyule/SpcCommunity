@@ -1,55 +1,18 @@
-.TableStyle {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
+@import "./variable";
 
-.TableStyle td {
-    padding-top: 7px;
-    padding-bottom: 7px;
+.BoardListItem {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $poo-gray-c8;
+    &:hover {
+        background: $poo-gray-c8;
+        cursor: pointer;
+    }
 }
-
-.TableStyle tr:hover {
-    background-color: #ddd;
+.Title {
+    font-size: 1rem;
+    margin: 0;
 }
-
-.TableStyle td:nth-child(1) {
-    width: 70px;
-    text-align: center;
-}
-
-.TableStyle td:nth-child(2) {
-    width: calc(100% - 410px);
-}
-
-.TableStyle td:nth-child(2):hover {
-    text-decoration: underline;
-}
-
-.TableStyle td:nth-child(3) {
-    width: 200px;
-    text-align: center;
-}
-
-.TableStyle td:nth-child(4) {
-    width: 100px;
-    text-align: center;
-}
-
-.TableStyle td:nth-child(5) {
-    width: 40px;
-    text-align: center;
-}
-
-.TableStyle td:nth-child(6) {
-    width: 80px;
-    text-align: center;
-}
-
-.BoardArea {
-    width: 100%;
-}
-
-.Title:hover {
-    cursor: pointer;
+.BoardSubInfo {
+    color: $poo-gray-800;
 }

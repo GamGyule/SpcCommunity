@@ -1,5 +1,21 @@
-// display
-$FIXED_WIDTH: 1000px;
-$FULL_WIDTH: 100%;
-$RESPONSIVE_WIDTH: 98%;
-$MOBILE_WIDTH: 600px;
+// className 여러개 쓸떄, 
+// 1. Style. 일때 className={`${styles.container1} ${styles.container2}`}
+// 2. Style.과 일반 클래스 혼합일때 className={`${styles.container1} mt-5`}
+
+// break point
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px,
+//   xxl: 1400px
+$breakpoint-max: 767px;
+$breakpoint-min: 768px;
+
+// color
+$poo-primary-blue: blue;
+$poo-primary-orange: orange;
+$poo-gray-300: #333;
+$poo-gray-600: #666;
+$poo-gray-800: #888;
+$poo-gray-c8: #c8c8c8;

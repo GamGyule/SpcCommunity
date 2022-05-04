@@ -1,5 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image'
 import Styles from '../../styles/Paging.module.scss'
+import chevronLeft from '../../public/chevron-left.svg'
+import chevronRight from '../../public/chevron-right.svg'
 
 function Paging(data, page, board) {
     let pagingSlice = 10;
@@ -12,7 +15,7 @@ function Paging(data, page, board) {
     const rendering = () => {
         let result = [];
         if (currPage > 10) {
-            result.push(<Link href={'/' + board + '?page=' + parseInt(indexOfFirst - 1)}><span>이전</span></Link>);
+            result.push(<Link key={indexOfFirst - 1} href={'/' + board + '?page=' + parseInt(indexOfFirst - 1)}><span className={Styles.PagingArrow}><Image src={chevronLeft} alt="Next"></Image></span></Link>);
         }
         for (let i = indexOfFirst; i <= indexOfLast; i++) {
             if (i == currPage) {
@@ -22,7 +25,7 @@ function Paging(data, page, board) {
             }
         }
         if (indexOfLast < boardPage) {
-            result.push(<Link href={'/' + board + '?page=' + parseInt(indexOfLast + 1)}><span>다음</span></Link>);
+            result.push(<Link key={indexOfLast + 1} href={'/' + board + '?page=' + parseInt(indexOfLast + 1)}><span className={Styles.PagingArrow}><Image src={chevronRight} alt="Prev"></Image></span></Link>);
         }
         return result;
     }
