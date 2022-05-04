@@ -22,36 +22,43 @@ public class FreeBoardService {
 	@Autowired
 	private MybatisFreeBoardRepository mybatisFreeBoardRepository;
 	
-	@Transactional
+	@Transactional(rollbackFor=Exception.class)
 	public int findCountAll() {
 		return mybatisFreeBoardRepository.findCountAll();
 	}	
 	
-	@Transactional
+	@Transactional(rollbackFor=Exception.class)
 	public List<FreeBoardDto> findById(int idx) {
 		return mybatisFreeBoardRepository.findById(idx);
 	}
 	
 	
-	@Transactional
+	@Transactional(rollbackFor=Exception.class)
 	public List<FreeBoardDto> findPage(int page){
 		return mybatisFreeBoardRepository.findPage(page);
 	}
 	
-	@Transactional
+	@Transactional(rollbackFor=Exception.class)
 	public List<FreeBoardDto> findLately(){
 		return mybatisFreeBoardRepository.findLately();
 	}
 	
-	@Transactional
+	@Transactional(rollbackFor=Exception.class)
 	public FreeBoardDto findBoard(int boardNum) {
 		return mybatisFreeBoardRepository.findBoard(boardNum);
 	}
 	
-	@Transactional
+	@Transactional(rollbackFor=Exception.class)
 	public FreeBoard save(FreeBoard freeBoard) {
 		return jpaFreeBoardRepository.save(freeBoard);
 	}
+	
+	//이렇게해야 오류가떴을때 롤백해줌
+	@Transactional(rollbackFor=Exception.class)
+	public String search(String name, String keyword) {
+		return mybatisFreeBoardRepository.findKeyword(name,keyword);
+	}
+	
 	
 	
 }

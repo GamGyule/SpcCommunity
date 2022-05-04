@@ -16,6 +16,8 @@ public interface MybatisFreeBoardRepository {
 	
 	List<FreeBoardDto> findLately();
 	
+	String findKeyword(String name, String keyword);
+	
 	FreeBoardDto findBoard(int boardNum);
 	
 }
