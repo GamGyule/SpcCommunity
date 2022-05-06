@@ -33,7 +33,7 @@ const Header = () => {
         <div>
             {/* <Head><script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script></Head> */}          
 
-            <Navbar key={'lg'} bg="light" expand={'lg'} className="mb-3">
+            <Navbar key={'lg'} bg="light" expand={'lg'} className="mb-4">
                 <Container fluid>
                     <Navbar.Brand href="/" className="d-flex align-items-center justify-content-center">
                         <Image className={Styles.Logo} src={Logo} alt="Logo"></Image>

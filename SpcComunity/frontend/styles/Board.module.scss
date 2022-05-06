@@ -1,54 +1,23 @@
 @import './variable';
 
 .BoardTitle {
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.BoardTitle h2 {
-  width: 70%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 10px 5px;
-  margin: 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .RegBox {
-  width: 30%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.Reg {
-  width: 50% !important;
-}
-
-.RegDate {
-  width: 50% !important;
+  border: 1px solid red;
 }
 
 .BoardContents {
-  position: relative;
-  padding: 10px;
 }
 
 .ContentArea {
-  min-height: 500px;
-  margin-bottom: 150px;
+  // min-height: 500px;
+  // margin-bottom: 150px;
 }
 
 .UpDownShare {
-  position: absolute;
-  width: 100%;
-  bottom: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .UpDownShare span {

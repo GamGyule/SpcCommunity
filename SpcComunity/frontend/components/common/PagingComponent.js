@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image'
 import Styles from '../../styles/Paging.module.scss'
-import chevronLeft from '../../public/chevron-left.svg'
-import chevronRight from '../../public/chevron-right.svg'
+import chevronLeft from '../../public/icons/icon-chevron-left.svg'
+import chevronRight from '../../public/icons/icon-chevron-right.svg'
 
 function Paging(data, page, board) {
     let pagingSlice = 10;

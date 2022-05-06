@@ -1,20 +1,18 @@
 import axios from 'axios'
 import Head from 'next/head'
-import Image from 'next/image'
 import Layout from '../components/public/Layout';
 import { useStore } from '../store/store.js'
 import ListComponent from '../components/common/ListBoardComponent.js'
 import Link from 'next/link';
 import PagingComponent from '../components/common/PagingComponent';
+import { Container } from 'react-bootstrap';
 
 const HumorBoard = ({ data, page }) => (
     <Layout>
-        <div className='center-container'>
-            <div className='center-child'>
-                <ListComponent board="유머 게시판" data={data}></ListComponent>
-                <PagingComponent data={data} page={page} board='humor'></PagingComponent>
-            </div>
-        </div>
+        <Container>
+            <ListComponent board="유머 게시판" data={data}></ListComponent>
+            <PagingComponent data={data} page={page} board='humor'></PagingComponent>         
+        </Container>
     </Layout>
 );
 

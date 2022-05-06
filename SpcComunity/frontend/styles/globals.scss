@@ -17,8 +17,11 @@ a {
   text-decoration: none; 
 }
 
-small {
+small, .small {
   font-size: .75rem;
+  &-gray {
+    color: $poo-gray-800;
+  }
 }
 
 ul,
@@ -32,10 +35,10 @@ ol {
   box-sizing: border-box;
 }
 
-.center-container {
-  border: 1px dashed black;
-}
+// .center-container {
+//   border: 1px dashed black;
+// }
 
-.center-child {
-  border: 1px dashed blue;
-}
+// .center-child {
+//   border: 1px dashed blue;
+// }

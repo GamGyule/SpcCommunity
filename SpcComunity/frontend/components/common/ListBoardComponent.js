@@ -59,7 +59,7 @@ function BoardReturn(props) {
                     <h5 className={Styles.Title}> 
                         <Link href={url + "/" + board.idx}><div>{board.title}[{board.commentCnt}]</div></Link> 
                     </h5>
-                    <div className={Styles.BoardSubInfo}>
+                    <div className={`${Styles.BoardSubInfo} small-gray`}>
                         <small> {board.writer} </small> |
                         <small> {showDate} </small> |
                         <small> 추천 {board.thumbsUp - board.thumbsDown} </small> |

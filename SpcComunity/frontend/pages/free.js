@@ -1,43 +1,44 @@
 import axios from 'axios'
 import { GetServerSideProps } from 'next';
+import Image from 'next/image'
 import Layout from '../components/public/Layout';
 import { useStore } from '../store/store.js'
 import {Container, Row, Col, Form, FormControl, InputGroup, Button} from 'react-bootstrap'
 import ListComponent from '../components/common/ListBoardComponent.js'
 import PagingComponent from '../components/common/PagingComponent';
+import SearchImage from '../public/icons/icon-search.svg'
+
 
 function FreeBoard({ data, page }) {
   return (
     <Layout>
       <Container>
-        <div className='center-child'>
-          <ListComponent board="자유 게시판" data={data}></ListComponent>
-          <PagingComponent data={data} page={page} board='free'></PagingComponent>
-          
-          <Row>
-              <Form name="search-form" autoComplete="off" className='d-flex align-content-center'>
-                <Col xs={4} md={2} className='me-1'>
-                    <Form.Select name="name">
-                      <option value="">검색 내용 선택</option>
-                      <option value="title">제목</option>
-                      <option value="contents">내용</option>
-                      <option value="mix">제목+내용</option>
-                      <option value="writer">닉네임</option>
-                    </Form.Select>
-                </Col>
-                <Col xs={8} md={6} className='d-flex'>
-                  <FormControl
-                      type="text" 
-                      name="keyword" 
-                      className="form-control me-1"
-                      id="search" 
-                      placeholder="검색"
-                  />
-                  <Button onclick="getSearchList()" className="btn btn-success bi bi-search">Search</Button>
-                </Col>    
-              </Form>
-          </Row>
-        </div>
+        <ListComponent board="자유 게시판" data={data}></ListComponent>
+        <PagingComponent data={data} page={page} board='free'></PagingComponent>
+        
+        <Row>
+            <Form name="search-form" autoComplete="off" className='d-flex align-content-center'>
+              <Col xs={4} md={2} className='me-1'>
+                  <Form.Select name="name">
+                    <option value="">검색 내용 선택</option>
+                    <option value="title">제목</option>
+                    <option value="contents">내용</option>
+                    <option value="mix">제목+내용</option>
+                    <option value="writer">닉네임</option>
+                  </Form.Select>
+              </Col>
+              <Col xs={8} md={6} className='d-flex'>
+                <FormControl
+                    type="text" 
+                    name="keyword" 
+                    className="form-control me-1"
+                    id="search" 
+                    placeholder="검색"
+                />
+                <Button onclick="getSearchList()" className="btn btn-success bi bi-search"><Image src={SearchImage} alt="search" /></Button>
+              </Col>    
+            </Form>
+        </Row>
       </Container>
     </Layout>
   )
