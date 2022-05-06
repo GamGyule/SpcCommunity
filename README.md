@@ -1,2 +1,2 @@
-# SpcComunity
+# SpcCommunity
 SpringBoot + React + JPA + Mybatis
