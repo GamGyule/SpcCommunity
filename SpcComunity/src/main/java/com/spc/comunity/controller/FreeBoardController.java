@@ -27,6 +27,7 @@ import com.spc.comunity.dto.FreeBoardDto;
 import com.spc.comunity.dto.HumorBoardDto;
 import com.spc.comunity.entity.FreeBoard;
 import com.spc.comunity.entity.HumorBoard;
+import com.spc.comunity.util.ResultResponse;
 
 @RestController
 @RequestMapping("/api")
@@ -42,11 +43,9 @@ public class FreeBoardController {
 	@Autowired
 	JpaFreeBoardRepository jpaFreeBoardRepository;
 
-	private Gson gson = new Gson().newBuilder().setDateFormat("yyyy-MM-dd HH:mm").create();
-
 	// 자유게시판 목록조회
 	@GetMapping("/board/free")
-	public String freeList(@RequestParam("page") int page) {
+	public Map<String, Object> freeList(@RequestParam("page") int page) {
 		List<FreeBoardDto> list = freeBoardService.findPage((page-1)*20);
 		int count = freeBoardService.findCountAll();
 		
@@ -54,9 +53,7 @@ public class FreeBoardController {
 		map.put("board", list);
 		map.put("boardCount", count);
 
-		String json = gson.toJson(map);
-
-		return json;
+		return map;
 	}
 	
 	//검색
@@ -72,7 +69,7 @@ public class FreeBoardController {
 	
 
 	@GetMapping("/board/humor")
-	public String humorList(@RequestParam("page") int page) {
+	public Map humorList(@RequestParam("page") int page) {
 		System.out.println(page);
 		List<HumorBoardDto> list = humorBoardService.findPage((page-1)*20);
 		int count = humorBoardService.findCountAll();
@@ -81,14 +78,12 @@ public class FreeBoardController {
 		map.put("board", list);
 		map.put("boardCount", count);
 
-		String json = gson.toJson(map);
-
-		return json;
+		return map;
 	}
 
 	// 자유게시판 목록조회
 	@GetMapping("/board/humor/{boardNum}")
-	public String getHumorBoard(@PathVariable int boardNum) {
+	public Map getHumorBoard(@PathVariable int boardNum) {
 		HumorBoardDto humorDto = humorBoardService.findBoard(boardNum);
 		List<BoardCommentDto> commentDto = boardCommentService.findHumorComment(boardNum);
 
@@ -96,15 +91,12 @@ public class FreeBoardController {
 
 		map.put("board", humorDto);
 		map.put("comment", commentDto);
-		String json = gson.toJson(map);
-		
-		System.out.println(json);
 
-		return json;
+		return map;
 	}
 	
 	@GetMapping("/board/free/{boardNum}")
-	public String getFreeBoard(@PathVariable int boardNum) {
+	public Map getFreeBoard(@PathVariable int boardNum) {
 		FreeBoardDto freeDto = freeBoardService.findBoard(boardNum);
 		List<BoardCommentDto> commentDto = boardCommentService.findFreeComment(boardNum);
 
@@ -112,30 +104,25 @@ public class FreeBoardController {
 
 		map.put("board", freeDto);
 		map.put("comment", commentDto);
-		String json = gson.toJson(map);
 
-		return json;
+		return map;
 	}
 
 
 	@GetMapping("/board/humor/lately")
-	public String humorLately() {
+	public List<HumorBoardDto> humorLately() {
 
 		List<HumorBoardDto> list = humorBoardService.findLately();
 
-		String json = gson.toJson(list);
-
-		return json;
+		return list;
 	}
 
 	@GetMapping("/board/free/lately")
-	public String freeLately() {
+	public List<FreeBoardDto> freeLately() {
 
 		List<FreeBoardDto> list = freeBoardService.findLately();
 
-		String json = gson.toJson(list);
-
-		return json;
+		return list;
 	}
 	@PatchMapping("/board/free/{boardNum}")
 	public String freeBoardUpdate(@PathVariable int boardNum, @RequestBody FreeBoardDto dto) {		
