@@ -2,6 +2,8 @@ package com.spc.comunity.dto;
 
 import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +29,7 @@ public class UserInfoDto {
 	
 	private String token;
 	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Timestamp regDate;
 	
 	private int authCode = 0;
@@ -37,6 +40,7 @@ public class UserInfoDto {
 	
 	private int level = 1;
 	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Timestamp loginTime;
 	
 	private int pwdFailCount;

@@ -4,19 +4,19 @@
 <mapper namespace="com.spc.comunity.dao.MybatisFreeBoardRepository">
 
 	<select id="findCountAll" resultType="Integer">
-		select count(*) from TBL_FREE_BOARD;
+		select count(*) from TBL_FREE_BOARD where USE_YN = 1;
 	</select>
 
 	<select id="findPage"
 		resultType="com.spc.comunity.dto.FreeBoardDto" parameterType="int">
 		select board.IDX , board.TITLE ,board.CONTENTS ,board.THUMBS_UP ,board.THUMBS_DOWN ,board.WARNING,board.REG_DATE ,board.WRITER, board.UP_DATE ,board.VIEW_POINT ,board.USE_YN , cast((select count(*) from TBL_FREE_COMMENT cmt where board_idx = board.IDX) as unsigned) as COMMENT_CNT 
-		from TBL_FREE_BOARD board order by idx desc limit ${page}, 20;
+		from TBL_FREE_BOARD board where USE_YN = 1 order by idx desc limit ${page}, 20;
 	</select>
 	
 	<select id="findLately"
 		resultType="com.spc.comunity.dto.FreeBoardDto" parameterType="int">
 		select board.IDX , board.TITLE ,board.CONTENTS ,board.THUMBS_UP ,board.THUMBS_DOWN ,board.WARNING,board.REG_DATE ,board.WRITER, board.UP_DATE ,board.VIEW_POINT ,board.USE_YN , cast((select count(*) from TBL_FREE_COMMENT cmt where board_idx = board.IDX) as unsigned) as COMMENT_CNT 
-		from TBL_FREE_BOARD board order by idx desc limit 0,5;
+		from TBL_FREE_BOARD board where USE_YN = 1 order by idx desc limit 0,5;
 	</select>
 	
 	<select id="findBoard"
