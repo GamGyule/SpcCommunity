@@ -1,6 +1,31 @@
+// @import 'bootstrap';
+
 // className 여러개 쓸떄, 
 // 1. Style. 일때 className={`${styles.container1} ${styles.container2}`}
 // 2. Style.과 일반 클래스 혼합일때 className={`${styles.container1} mt-5`}
+
+// font
+@font-face {
+    font-family: 'bleepbloop';
+    src: url(../pages//font/bleep-bloop/BleepBloop-FreeVersion-900.otf);
+}
+$font-bleep: 'bleepbloop';
+
+@font-face {
+    font-family: 'nanum-square';
+    src: url(../pages/font/nanum-square-round/NanumSquareRoundR.ttf);
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'nanum-square';
+    src: url(../pages/font/nanum-square-round/NanumSquareRoundB.ttf);
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'nanum-square';
+    src: url(../pages/font/nanum-square-round/NanumSquareRoundEB.ttf);
+    font-weight: 800;
+}
 
 // break point
 //   xs: 0,
@@ -9,13 +34,16 @@
 //   lg: 992px,
 //   xl: 1200px,
 //   xxl: 1400px
-$breakpoint-max: 767px;
-$breakpoint-min: 768px;
+//   @include media-breakpoint-up(sm) { ... }
+//   @include media-breakpoint-down(sm) { ... }
+
+
 
 // color
-$poo-primary-blue: blue;
-$poo-primary-orange: orange;
-$poo-gray-300: #333;
-$poo-gray-600: #666;
-$poo-gray-800: #888;
-$poo-gray-c8: #c8c8c8;
+$poo-primary-blue: #0091ec;
+$poo-primary-green: #3bce84;
+$poo-primary-orange: #ff6b01;
+$gray-c8: #c8c8c8;
+$gray-300: #333;// todo: 여기서부터 왜 페이징모듈scss에서 안되지?
+$gray-600: #666;
+$gray-800: #888;
