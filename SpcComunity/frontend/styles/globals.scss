@@ -1,3 +1,4 @@
+@import 'bootstrap';
 @import "./variable";
 
 // font-size rem 사용.
@@ -6,10 +7,11 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: nanum-square,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #eeebd6;
-  font-size: 16px;
+    background: #3bce84;
+    background-image: linear-gradient(180deg, #0091ec 0%, #0091ec 35%, #3bce84 35%, #3bce84 100%);
+    font-size: 16px;
 }
 
 a {
@@ -20,7 +22,7 @@ a {
 small, .small {
   font-size: .75rem;
   &-gray {
-    color: $poo-gray-800;
+    color: $gray-800;
   }
 }
 

@@ -1,4 +1,4 @@
-@import "./variable";
+@import './variable';
 
 .PagingArea {
     display: flex;
@@ -18,12 +18,12 @@
     justify-content: center;
     margin-left: 5px;
     margin-right: 5px;
-    color: $poo-gray-600;
+    color: $gray-600;
     border-radius: 50%;
 
     &.Active {
         color: white;
-        background-color: $poo-gray-600;
+        background-color: $gray-600;
         border-radius: 50%;
     }
 }
@@ -34,11 +34,7 @@
 
 
 .PagingArrow {
-    color: $poo-gray-600;
-    border: 1px solid $poo-gray-600;
+    color: $gray-600;
+    border: 1px solid $gray-600;
 }
 
-
-@media (max-width: $breakpoint-max) {
-   
-}

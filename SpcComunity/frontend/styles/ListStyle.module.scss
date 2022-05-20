@@ -1,11 +1,11 @@
-@import "./variable";
+@import './variable';
 
 .BoardListItem {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid $poo-gray-c8;
+    border-bottom: 1px solid $gray-c8;
     &:hover {
-        background: $poo-gray-c8;
+        background: $gray-c8;
         cursor: pointer;
     }
 }
@@ -14,5 +14,5 @@
     margin: 0;
 }
 .BoardSubInfo {
-    color: $poo-gray-800;
+    color: $gray-800;
 }
