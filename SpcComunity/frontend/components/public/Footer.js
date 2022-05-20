@@ -5,7 +5,7 @@ import Styles from '../../styles/Footer.module.scss'
 
 const Footer = () => {
     return (
-        <Container fluid>
+        <Container fluid className={`${Styles.FooterWrap}`}>
             <Row className={`${Styles.FooterBox} mt-4`}>
                 <Col xs={12} className={`${Styles.FooterBar} d-flex align-items-center justify-content-between`}>
                     <Image src={Logo} alt="logo"></Image>
