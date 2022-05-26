@@ -1,6 +1,6 @@
 import Layout from '../components/public/Layout'
-import { useStore } from '../store/store.js'
 import {Container, Row, Col} from 'react-bootstrap'
+import { useStore } from '../store/store.js'
 import Styles from '../styles/Home.module.scss'
 import MainLatelyComponent from '../components/common/MainLatelyComponent'
 import SidePanel from '../components/common/SidePanel'
@@ -40,19 +40,26 @@ export const getServerSideProps = async (context) => {
 export default function Home({ freeData, humorData }) {
   return (
     <Layout>
-      <Container className='center-container'>
+      <Container>
         <Row>
-          <Col className={Styles.MainContainer} xs={12} lg={9}>
-            <div className='center-child'>
+          <Col xs={12} className="header-sub py-5">
+            <div className="header-sub-text">COMMUNITY</div>
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Row>
+          <Col className={Styles.MainContainer} xs={12} lg={8}>
+            <div className="beige-bg radius-right">
               <div className={Styles.MainContent}>
                 <div className={Styles.MainBanner}>
                 </div>
                 <Row className={`${Styles.LatelyLayout} mt-5`}>
-                  <Col xs={12} md={6}>
-                    <MainLatelyComponent boardName="자유게시판" board={freeData}></MainLatelyComponent>
+                  <Col xs={12}>
+                    <MainLatelyComponent boardName="자유 게시판 BEST" board={freeData}></MainLatelyComponent>
                   </Col>
-                  <Col xs={12} md={6}>
-                    <MainLatelyComponent boardName="유머게시판" board={humorData}></MainLatelyComponent>
+                  <Col xs={12}>
+                    <MainLatelyComponent boardName="유머게시판 BEST" board={humorData}></MainLatelyComponent>
                   </Col>
                 </Row>
               </div>
@@ -60,8 +67,10 @@ export default function Home({ freeData, humorData }) {
           </Col>
 
           {/* 사이드 패널 */}
-          <Col xs={12} lg={3} className='d-none d-md-block'>
-            <SidePanel />
+          <Col xs={12} lg={4} className="d-none d-md-block">
+            <div className="beige-bg radius-left">
+              <SidePanel />
+            </div>
           </Col>
         </Row>
       </Container>

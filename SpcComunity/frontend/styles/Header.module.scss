@@ -10,7 +10,7 @@
     align-items: center;
     padding: 8px 12px;
     margin: 0 auto;
-    border: 1px dashed black;
+    background-color: $poo-primary-blue;
 }
 
 .NavMenu {
@@ -32,9 +32,8 @@
     color: black;
 }
 
-.NavBarLogo span {
-    vertical-align: middle;
-
+.LogoWrap {
+    background: black;
 }
 
 .NavToolbar {

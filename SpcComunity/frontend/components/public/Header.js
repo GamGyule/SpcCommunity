@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import {Container, Row, Col, Nav, Navbar, NavDropdown, Form, FormControl, Button, Offcanvas} from 'react-bootstrap'
 import Styles from '../../styles/Header.module.scss'
-import Logo from '../../public/logo.png'
+import Logo from '../../public/logo.svg'
 // import NaverLoginComponent from '../common/NaverLoginComponent';
 import { useStore } from '../../store/store'
 import { useEffect } from 'react'
@@ -33,11 +33,10 @@ const Header = () => {
         <div>
             {/* <Head><script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script></Head> */}          
 
-            <Navbar key={'lg'} bg="light" expand={'lg'} className="mb-4">
+            <Navbar key={'lg'} expand={'lg'} className="mb-4">
                 <Container fluid>
-                    <Navbar.Brand href="/" className="d-flex align-items-center justify-content-center">
-                        <Image className={Styles.Logo} src={Logo} alt="Logo"></Image>
-                        poople
+                    <Navbar.Brand href="/" className={`${Styles.LogoWrap} d-flex align-items-center justify-content-center py-2 px-4`}>
+                        <Image className={Styles.Logo} src={Logo} alt="POOPLE Logo"></Image>                        
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
                     <Navbar.Offcanvas
@@ -51,7 +50,7 @@ const Header = () => {
                             </Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
-                            <Nav className="justify-content-end flex-grow-1 pe-3">
+                            <Nav className="flex-grow-1 pe-3">
                                 <Nav.Link href="/free">자유 게시판</Nav.Link>
                                 <Nav.Link href="/humor">유머 게시판</Nav.Link>
                                 <NavDropdown
@@ -67,7 +66,6 @@ const Header = () => {
                                         Something else here
                                     </NavDropdown.Item>
                                 </NavDropdown>
-
                                 <div className={Styles.NavMenu}>
                                     <div>{UserInfo()}</div>
                                 </div>
@@ -81,6 +79,10 @@ const Header = () => {
                                 />
                                 <Button variant="outline-success">Search</Button>
                             </Form>
+                            <div className={Styles.NavRight}> 
+                                <Nav.Link href="/free">SIGN UP</Nav.Link>
+                                <Nav.Link href="/free">SIGN IN</Nav.Link>
+                            </div>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>
                 </Container>

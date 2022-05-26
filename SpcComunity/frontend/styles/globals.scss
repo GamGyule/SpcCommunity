@@ -1,18 +1,39 @@
 @import "./variable";
-@import "../node_modules/bootstrap/scss/bootstrap";
 
-// font-size rem 사용.
+// * =============================================
+// * font
+// * font-size rem 사용.
+@font-face {
+  font-family: 'bleepbloop';
+  src: url(../pages//font/bleep-bloop/BleepBloop-FreeVersion-900.otf);
+}
 
+@font-face {
+  font-family: 'nanum-square';
+  src: url(../pages/font/nanum-square-round/NanumSquareRoundR.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'nanum-square';
+  src: url(../pages/font/nanum-square-round/NanumSquareRoundB.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'nanum-square';
+  src: url(../pages/font/nanum-square-round/NanumSquareRoundEB.ttf);
+  font-weight: 800;
+}
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: nanum-square,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background: #3bce84;
-    background-image: linear-gradient(180deg, #0091ec 0%, #0091ec 35%, #3bce84 35%, #3bce84 100%);
-    font-size: 16px;
+  // font-family: nanum-square,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  // Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'nanum-square', Helvetica, sans-serif !important;
+  background: #3bce84;
+  background-image: linear-gradient(180deg, #0091ec 0%, #0091ec 35%, #3bce84 35%, #3bce84 100%);
+  font-size: 16px;
 }
 
 a {
@@ -38,16 +59,8 @@ ol {
   box-sizing: border-box;
 }
 
-
-// break point
-//   xs: 0,
-//   sm: 576px,
-//   md: 768px,
-//   lg: 992px,
-//   xl: 1200px,
-//   xxl: 1400px
-//   @include media-breakpoint-up(sm) { ... }
-//   @include media-breakpoint-down(sm) { ... }
+// * =============================================
+// * Bootstrap Break Ponts
 
 $grid-breakpoints: (
   xs: 0,
@@ -72,3 +85,67 @@ $grid-breakpoints: (
 // .center-child {
 //   border: 1px dashed blue;
 // }
+
+// * =============================================
+// * Color Class
+
+.poo-blue {
+  color: $poo-primary-blue;
+}
+
+// * =============================================
+// * Container Overide
+
+.beige-bg {
+  background-color: $poo-beige-bg;
+}
+.radius-right {
+  border-radius: 80px 80px 80px 0;
+  padding: 3rem !important;
+}
+.radius-left {
+  border-radius: 80px 80px 0 80px;
+  padding: 3rem !important;
+}
+
+// * =============================================
+// * Sub Header
+
+.header-sub {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+  font-family: 'bleepbloop';
+  font-size: 5rem;
+  font-weight: bold;
+  color: white;
+  &:after {
+    content: "COMMUNUTY";
+    position: absolute;
+    left: -36px;
+    -webkit-text-stroke: 2px rgba(251, 251, 236, 0.3);
+    color: transparent;
+  }
+}
+.header-sub-text {
+  position: relative;
+  right: -48px;
+}
+
+// * =============================================
+// * Latest
+
+.latest-title {
+  font-size: 2rem;
+  color: $poo-primary-blue;
+}
+.latest-more-btn {
+  width: 24px;
+  height: 24px;
+  background-color: $poo-primary-orange;
+  border-radius: 50%;
+}
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";

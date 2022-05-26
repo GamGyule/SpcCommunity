@@ -2,33 +2,11 @@
 // 1. Style. 일때 className={`${styles.container1} ${styles.container2}`}
 // 2. Style.과 일반 클래스 혼합일때 className={`${styles.container1} mt-5`}
 
-// font
-@font-face {
-    font-family: 'bleepbloop';
-    src: url(../pages//font/bleep-bloop/BleepBloop-FreeVersion-900.otf);
-}
-$font-bleep: 'bleepbloop';
-
-@font-face {
-    font-family: 'nanum-square';
-    src: url(../pages/font/nanum-square-round/NanumSquareRoundR.ttf);
-    font-weight: 400;
-}
-@font-face {
-    font-family: 'nanum-square';
-    src: url(../pages/font/nanum-square-round/NanumSquareRoundB.ttf);
-    font-weight: 600;
-}
-@font-face {
-    font-family: 'nanum-square';
-    src: url(../pages/font/nanum-square-round/NanumSquareRoundEB.ttf);
-    font-weight: 800;
-}
-
 // color
 $poo-primary-blue: #0091ec;
 $poo-primary-green: #3bce84;
 $poo-primary-orange: #ff6b01;
+$poo-beige-bg: #fbfbec;
 $gray-c8: #c8c8c8;
 $gray-300: #333;// todo: 여기서부터 왜 페이징모듈scss에서 안되지?
 $gray-600: #666;
