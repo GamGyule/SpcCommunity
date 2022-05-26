@@ -1,7 +1,8 @@
-@import 'bootstrap';
 @import "./variable";
+@import "../node_modules/bootstrap/scss/bootstrap";
 
 // font-size rem 사용.
+
 
 html,
 body {
@@ -36,6 +37,33 @@ ol {
 * {
   box-sizing: border-box;
 }
+
+
+// break point
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px,
+//   xxl: 1400px
+//   @include media-breakpoint-up(sm) { ... }
+//   @include media-breakpoint-down(sm) { ... }
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+
+// @include media-breakpoint-up(sm) {
+//   body {
+//     background: red;
+//   }
+// }
 
 // .center-container {
 //   border: 1px dashed black;

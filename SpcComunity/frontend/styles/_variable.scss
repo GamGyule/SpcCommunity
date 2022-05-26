@@ -1,5 +1,3 @@
-// @import 'bootstrap';
-
 // className 여러개 쓸떄, 
 // 1. Style. 일때 className={`${styles.container1} ${styles.container2}`}
 // 2. Style.과 일반 클래스 혼합일때 className={`${styles.container1} mt-5`}
@@ -26,18 +24,6 @@ $font-bleep: 'bleepbloop';
     src: url(../pages/font/nanum-square-round/NanumSquareRoundEB.ttf);
     font-weight: 800;
 }
-
-// break point
-//   xs: 0,
-//   sm: 576px,
-//   md: 768px,
-//   lg: 992px,
-//   xl: 1200px,
-//   xxl: 1400px
-//   @include media-breakpoint-up(sm) { ... }
-//   @include media-breakpoint-down(sm) { ... }
-
-
 
 // color
 $poo-primary-blue: #0091ec;
