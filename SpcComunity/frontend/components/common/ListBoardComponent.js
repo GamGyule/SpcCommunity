@@ -73,7 +73,7 @@ function BoardReturn(props) {
 
 const ListBoardComponent = (props) => (
     <Container>
-        < div className={Styles.BoardArea}>
+        <div className={`${Styles.BoardArea} beige-bg`}>
             <h2>{props.board}</h2>
             <Row>
                 <div>

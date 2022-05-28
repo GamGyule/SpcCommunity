@@ -12,7 +12,7 @@ function Board({ board, comment }) {
     return (    
         <Layout>
             <Container>
-                <div>
+                <div className={`${Styles.BoardContentsWrap} beige-bg`}>
                     <div className={`${Styles.BoardTitle} py-3`}>
                         <h2>{board.title}</h2>
                         <div className={Styles.RegBox}>

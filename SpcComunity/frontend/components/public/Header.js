@@ -67,7 +67,7 @@ const Header = () => {
                                     </NavDropdown.Item>
                                 </NavDropdown>
                                 <div className={Styles.NavMenu}>
-                                    <div>{UserInfo()}</div>
+                                    <div>{UserInfo()} 유저인포</div>
                                 </div>
                             </Nav>
                             <Form className="d-flex">
@@ -79,10 +79,10 @@ const Header = () => {
                                 />
                                 <Button variant="outline-success">Search</Button>
                             </Form>
-                            <div className={Styles.NavRight}> 
+                            {/* <div className={Styles.NavRight}>  */}
                                 <Nav.Link href="/free">SIGN UP</Nav.Link>
                                 <Nav.Link href="/free">SIGN IN</Nav.Link>
-                            </div>
+                            {/* </div> */}
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>
                 </Container>
