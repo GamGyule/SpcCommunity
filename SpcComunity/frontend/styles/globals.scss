@@ -1,3 +1,4 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
 @import "./variable";
 
 // * =============================================
@@ -34,6 +35,10 @@ body {
   background: #3bce84;
   background-image: linear-gradient(180deg, #0091ec 0%, #0091ec 40%, #3bce84 40%, #3bce84 100%);
   font-size: 16px;
+}
+
+img {
+  max-width: 100%
 }
 
 a {
@@ -149,4 +154,3 @@ $grid-breakpoints: (
 }
 
 
-@import "../node_modules/bootstrap/scss/bootstrap";

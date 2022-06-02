@@ -12,10 +12,10 @@ function SidePanel({ board, comment }) {
         <div className={Styles.test}>
             <div>
                 <div>
-                    <h5>BEST 게시글 혹은 순위</h5> <a>더보기</a>
+                    <h2 className="latest-title">BEST 게시글 혹은 순위</h2>
                 </div>
                 <ul>
-                    <li><a>title test</a></li>
+                    <li><a className={Styles.LatestSubTitle}>title test</a></li>
                 </ul>
             </div>
         </div>     

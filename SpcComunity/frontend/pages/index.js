@@ -52,10 +52,10 @@ export default function Home({ freeData, humorData }) {
           <Col className={Styles.MainContainer} xs={12} lg={8}>
             <div className="beige-bg radius-right">
               <div className={Styles.MainContent}>
-                <div className={Styles.MainBanner}>
-                </div>
-                <Row className={`${Styles.LatelyLayout} mt-5`}>
-                  <Col xs={12}>
+                {/* <div className={Styles.MainBanner}>
+                </div> */}
+                <Row className={`${Styles.LatelyLayout}`}>
+                  <Col xs={12} className="mb-5">
                     <MainLatelyComponent boardName="자유 게시판 BEST" board={freeData}></MainLatelyComponent>
                   </Col>
                   <Col xs={12}>

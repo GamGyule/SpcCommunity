@@ -4,6 +4,7 @@ import Image from 'next/image'
 import {Container, Row, Col, Nav, Navbar, NavDropdown, Form, FormControl, Button, Offcanvas} from 'react-bootstrap'
 import Styles from '../../styles/Header.module.scss'
 import Logo from '../../public/logo.svg'
+import IconSearch from '../../public/icons/icon-search.svg'
 // import NaverLoginComponent from '../common/NaverLoginComponent';
 import { useStore } from '../../store/store'
 import { useEffect } from 'react'
@@ -53,7 +54,7 @@ const Header = () => {
                             <Nav className="flex-grow-1 pe-3">
                                 <Nav.Link href="/free">자유 게시판</Nav.Link>
                                 <Nav.Link href="/humor">유머 게시판</Nav.Link>
-                                <NavDropdown
+                                {/* <NavDropdown
                                     title="Dropdown"
                                     id={`offcanvasNavbarDropdown-expand-lg`}
                                 >
@@ -65,10 +66,7 @@ const Header = () => {
                                     <NavDropdown.Item href="#action5">
                                         Something else here
                                     </NavDropdown.Item>
-                                </NavDropdown>
-                                <div className={Styles.NavMenu}>
-                                    <div>{UserInfo()} 유저인포</div>
-                                </div>
+                                </NavDropdown> */}
                             </Nav>
                             <Form className="d-flex">
                                 <FormControl
@@ -77,12 +75,15 @@ const Header = () => {
                                     className="me-2"
                                     aria-label="Search"
                                 />
-                                <Button variant="outline-success">Search</Button>
+                                <Button variant="outline-success"><Image src={IconSearch} alt="search"></Image></Button>
                             </Form>
                             {/* <div className={Styles.NavRight}>  */}
-                                <Nav.Link href="/free">SIGN UP</Nav.Link>
-                                <Nav.Link href="/free">SIGN IN</Nav.Link>
+                                {/* <Nav.Link href="/free">SIGN UP</Nav.Link>
+                                <Nav.Link href="/free">SIGN IN</Nav.Link> */}
                             {/* </div> */}
+                            <div className={Styles.NavMenu}>
+                                <div>{UserInfo()} 유저인포</div>
+                            </div>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>
                 </Container>
