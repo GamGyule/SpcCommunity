@@ -1,9 +1,6 @@
 @import './variable';
 
 .TableStyle {
-    // width: 500px;
-    // min-height: 200px;
-    border: 1px dashed red;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -16,10 +13,18 @@
 .TableStyle li>div {
     padding: 5px 8px;
     display: flex;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 .TableStyle li>div:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.LatestInfo {
+    color: $khaki;
+    gap: .3rem;
+    span {
+        width: 30px; height: 30px;
+    }
 }

@@ -1,9 +1,11 @@
 @import './_variable';
 
-.test {
-    border: 1px solid red;
+.SidePanel {
+    border: 1px dashed red;
 }
-
-.LatestSubTitle {
+.SidePanelItem {
+    margin-bottom: 1rem;
+}
+.SidePanelSubTitle {
     color: $khaki;
 }

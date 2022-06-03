@@ -1,7 +1,20 @@
 @import './variable';
 
 .NavBarBox {
-    border: 1px dashed black;
+}
+
+.OffcanvasBody,
+.NavRight {
+    align-items: center;
+}
+
+.CustomNav,
+.NavRight {
+    gap: 1rem;
+    color: white;
+    a {
+        color: white !important;
+    }
 }
 
 .NavBar {
@@ -40,7 +53,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px dashed red;
     background-color: #fbfbfb;
     padding: 3px 1%;
 }
@@ -71,4 +83,8 @@
     .NavMenu {
         margin: 0px 3%;
     }
+}
+
+.NavRight {
+    display: flex;
 }

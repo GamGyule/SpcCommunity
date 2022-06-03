@@ -9,13 +9,11 @@ import Styles from '../../styles/SidePanel.module.scss'
 
 function SidePanel({ board, comment }) {
     return (    
-        <div className={Styles.test}>
-            <div>
-                <div>
-                    <h2 className="latest-title">BEST 게시글 혹은 순위</h2>
-                </div>
+        <div className={Styles.SidePanel}>
+            <div className={Styles.SidePanelItem}>          
+                <h2 className="latest-title">푸플 인기글</h2>              
                 <ul>
-                    <li><a className={Styles.LatestSubTitle}>title test</a></li>
+                    <li><a className={Styles.SidePanelSubTitle}>title test</a></li>
                 </ul>
             </div>
         </div>     

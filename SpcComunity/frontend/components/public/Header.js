@@ -34,7 +34,7 @@ const Header = () => {
         <div>
             {/* <Head><script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script></Head> */}          
 
-            <Navbar key={'lg'} expand={'lg'} className="mb-4">
+            <Navbar key={'lg'} expand={'lg'} className="py-5">
                 <Container fluid>
                     <Navbar.Brand href="/" className={`${Styles.LogoWrap} d-flex align-items-center justify-content-center py-2 px-4`}>
                         <Image className={Styles.Logo} src={Logo} alt="POOPLE Logo"></Image>                        
@@ -50,8 +50,8 @@ const Header = () => {
                                 Offcanvas
                             </Offcanvas.Title>
                         </Offcanvas.Header>
-                        <Offcanvas.Body>
-                            <Nav className="flex-grow-1 pe-3">
+                        <Offcanvas.Body className={Styles.OffcanvasBody}>
+                            <Nav className={`${Styles.CustomNav} flex-grow-1 pe-3`}>
                                 <Nav.Link href="/free">자유 게시판</Nav.Link>
                                 <Nav.Link href="/humor">유머 게시판</Nav.Link>
                                 {/* <NavDropdown
@@ -77,10 +77,10 @@ const Header = () => {
                                 />
                                 <Button variant="outline-success"><Image src={IconSearch} alt="search"></Image></Button>
                             </Form>
-                            {/* <div className={Styles.NavRight}>  */}
-                                {/* <Nav.Link href="/free">SIGN UP</Nav.Link>
-                                <Nav.Link href="/free">SIGN IN</Nav.Link> */}
-                            {/* </div> */}
+                            <div className={Styles.NavRight}>
+                                <Nav.Link href="/free">SIGN UP</Nav.Link> /
+                                <Nav.Link href="/free">SIGN IN</Nav.Link>
+                            </div>
                             <div className={Styles.NavMenu}>
                                 <div>{UserInfo()} 유저인포</div>
                             </div>

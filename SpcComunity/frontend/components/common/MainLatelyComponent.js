@@ -30,11 +30,13 @@ function MainListReturn(boardName, board) {
                 <li key={item.idx}>
                     <Link href={'/' + url + '/' + item.idx}>
                         <div className="justify-content-between">
-                            <div>
-                                <span>{item.title}</span>
-                                <span className="poo-blue ms-2">{item.commentCnt}</span>
+                            <div className='d-flex'>
+                                <div className={`${Styles.tt} text-truncate`}>
+                                    {item.title}
+                                </div>
+                                <div className="poo-blue ms-2">{item.commentCnt}</div>
                             </div>
-                            <div className="d-flex">
+                            <div className={`${Styles.LatestInfo} d-flex`}>
                                 <Image src={IconEye} alt="조회수"></Image> {item.viewPoint}
                                 <Image src={IconThumbsUp} alt="추천수"></Image> {item.thumbsUp}
                             </div>

@@ -103,15 +103,15 @@ $grid-breakpoints: (
 
 .beige-bg {
   background-color: $poo-beige-bg;
-  padding: 3rem;
+  padding: 2rem;
 }
 .radius-right {
   border-radius: 80px 80px 80px 0;
-  padding: 3rem !important;
+  padding: 2rem !important;
 }
 .radius-left {
   border-radius: 80px 80px 0 80px;
-  padding: 3rem !important;
+  padding: 2rem !important;
 }
 
 // * =============================================
@@ -129,21 +129,23 @@ $grid-breakpoints: (
   &:after {
     content: "COMMUNUTY";
     position: absolute;
-    left: -36px;
+    left: 50%;
+    transform: translateX(-105%);
     -webkit-text-stroke: 2px rgba(251, 251, 236, 0.3);
     color: transparent;
   }
 }
 .header-sub-text {
   position: relative;
-  right: -48px;
+  right: 50%;
+  transform: translateX(105%);
 }
 
 // * =============================================
 // * Latest
 
 .latest-title {
-  font-size: 2rem;
+  font-size: inherit;
   color: $poo-primary-blue;
 }
 .latest-more-btn {
